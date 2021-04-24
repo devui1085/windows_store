@@ -1,0 +1,70 @@
+﻿<Page
+    x:Class="WindowsStore.Client.Developer.UI.Views.AppPackagesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WindowsStore.Client.Developer.UI.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:triggers="using:WindowsStore.Client.Developer.UI.Triggers"
+    xmlns:mvvm="using:Prism.Windows.Mvvm"
+    xmlns:viewModels="using:WindowsStore.Client.Developer.Logic.ViewModels"
+    d:DataContext="{d:DesignInstance viewModels:AppPackagesPageViewModel,IsDesignTimeCreatable=True}"
+    mvvm:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d" FlowDirection="RightToLeft"  HorizontalAlignment="Center" VerticalAlignment="Center">
+
+    <Page.Resources>
+        <Style x:Key="PanelStyle" TargetType="StackPanel" >
+            <Setter Property="Margin" Value="20"/>
+        </Style>
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <!--  Visual states reflect the application's view state  -->
+            <VisualStateGroup x:Name="ApplicationViewStates">
+                <VisualState x:Name="DefaultLayout">
+                    <VisualState.StateTriggers>
+                        <triggers:LayoutTrigger LayoutState="Landscape" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="PortraitLayout">
+                    <VisualState.StateTriggers>
+                        <triggers:LayoutTrigger LayoutState="Portrait" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="MinimalLayout">
+                    <VisualState.StateTriggers>
+                        <triggers:LayoutTrigger LayoutState="Minimal" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <StackPanel>
+            <StackPanel x:Name="ArmPackagePanel" Style="{StaticResource PanelStyle}" Visibility="{Binding AppDetail.AppPackageSpecification.IsArmPackageMandatory, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <Button x:Name="SelectArmPackageButton" Content="انتخاب پکیج ARM" IsEnabled="{Binding SelectArmPackageEnabled}"  Style="{StaticResource LightButtonStyle}" Click="SelectArmPackageButton_Click"></Button>
+                <TextBlock x:Name="ArmPackagePackageName" />
+                <ProgressBar></ProgressBar>
+            </StackPanel>
+            <StackPanel  x:Name="X64PackagePanel"  Style="{StaticResource PanelStyle}"  Visibility="{Binding AppDetail.AppPackageSpecification.IsX64PackageMandatory, Converter= {StaticResource BooleanToVisibilityConverter}}"  >
+                <Button x:Name="SelectX64PackageButton" Content="انتخاب پکیج x64" IsEnabled="{Binding SelectX64PackageEnabled}" Style="{StaticResource LightButtonStyle}" Click="SelectX64PackageButton_Click"></Button>
+                <TextBlock x:Name="X64PackagePackageName" />
+                <ProgressBar></ProgressBar>
+            </StackPanel>
+            <StackPanel x:Name="X86PackagePanel" Style="{StaticResource PanelStyle}" Visibility="{Binding AppDetail.AppPackageSpecification.IsX86PackageMandatory, Converter={StaticResource BooleanToVisibilityConverter}}" >
+                <Button x:Name="SelectX86PackageButton" Content="انتخاب پکیج x86" IsEnabled="{Binding SelectX86PackageEnabled}" Style="{StaticResource LightButtonStyle}" Click="SelectX86PackageButton_Click"></Button>
+                <TextBlock x:Name="X32PackagePackageName" />
+                <ProgressBar></ProgressBar>
+            </StackPanel>
+   <Button  x:Name="SendPackagesButton" Content="ارسال" Margin="20 30" Style="{StaticResource DarkButtonStyle}"> </Button>
+        </StackPanel>
+     
+    </Grid>
+</Page>

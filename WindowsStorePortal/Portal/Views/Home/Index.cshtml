@@ -1,0 +1,433 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="body">
+    <div class="row">
+        <div class="col-md-12 " id="content" role="main">
+            <article class="single-page-content">
+
+                @* برنامه های ویژه  *@
+                <div class="ia_row ia_full_row  dark-div  ia_paralax ">
+                    <div class="container">
+                        <div class="vc_row wpb_row vc_row-fluid vc_custom_1415027570575">
+                            <div class="vc_col-sm-12 wpb_column vc_column_container ">
+                                <div class="wpb_wrapper">
+                                    <div class="ia-heading ia-heading-heading_8093 heading-align-center "
+                                         data-delay="0">
+                                        <h2>برنامه های ویژه                </h2>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="vc_empty_space" style="height: 10px;"><span class="vc_empty_space_inner"></span></div><section class="ia-post-carousel ia-post-carousel-1510 " data-delay="0">
+                                        <div class="post-carousel-wrap">
+                                            <div class="is-carousel carousel-has-control " data-navigation="1" data-items="4">
+                                                @foreach (var app in Model.SpecialApps)
+                                                {
+                                                    <div class="post-carousel-item grid-item">
+                                                        <div class="grid-item-inner">
+                                                            <div class="grid-item-content app-item dark-div">
+                                                                <div class="app-thumbnail">
+                                                                    <a title="@app.Name" href="">
+                                                                        <img width="500" height="500" title="@app.Name" alt="@app.Name" class="app-icon-img" style="background-color:white"
+                                                                             src='@Url.Action("GetIcon256", "Home", new { id = app.Guid})'>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="grid-overlay grid-has-icon">
+                                                                    <a title="@app.Name" class="overlay-top"
+                                                                       href="">
+                                                                        <img width="60"
+                                                                             height="60" class="grip-app-icon" src="~/Content/Asset/Index/creative-idea-icon.png">
+                                                                        <h4>@app.Name</h4>
+                                                                        <div class="clearfix"></div>
+                                                                    </a>
+                                                                    <div class="overlay-bottom">
+                                                                        <div>
+                                                                            <span class="price"><span class="amount">@app.PriceText</span></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!--/app-item-->
+                                                        </div>
+                                                    </div><!--/post-carousel-item-->
+
+                                                }
+                                            </div>
+                                        </div>
+                                    </section><!--/ia-post-carousel-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vc_row-full-width"></div>
+                    </div>
+                </div><!--/ia_row-->
+                @* برنامه های پرطرفدار شده *@
+                <div class="ia_row ia_full_row ">
+                    <div class="container">
+                        <div class="vc_row wpb_row vc_row-fluid vc_custom_1415028093125">
+                            <div class="vc_col-sm-12 wpb_column vc_column_container ">
+                                <div class="wpb_wrapper">
+                                    <div class="ia-heading ia-heading-heading_8382 heading-align-right " data-delay="0">
+                                        <h2>                	برنامه های پرطرفدار                </h2>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="ia-woo ia-product-listing">
+                                        <div class="woocommerce columns-6">
+                                            <ul class="products">
+                                                @{
+                                                    var cssClasses = new string[] {
+                                                                    "2356", "2353", "2228", "2185", "1853", "1849",
+                                                                    "1845", "1841", "1838", "1810", "1779", "1745"};
+                                                }
+                                                @{
+                                                    var i = 0;
+                                                    foreach (var app in Model.MostPopularApps)
+                                                    {
+                                                        <li class="post-@cssClasses[i++] product type-product status-publish has-post-thumbnail shipping-taxable purchasable product-type-simple product-cat-tools product-cat-productivity product-cat-photography product-cat-media-3 product-tag-tools-2 product-tag-slider product-tag-photo instock">
+                                                            <div class="simple-thumbnail">
+                                                                <a title="@app.Name" href="">
+                                                                    <img width="263" height="263" class="app-icon-img" src='@Url.Action("GetIcon256", "Home", new { id = app.Guid})'>
+                                                                </a>
+                                                            </div>
+                                                            <div class="item-content ">
+                                                                <h4 class="product-title"><a title="@app.Name" class="main-color-1-hover" href="">@app.Name</a></h4><span class="price"><span class="amount">@app.PriceText</span></span>
+                                                            </div><a class="button add_to_cart_button product_type_simple ia-addtocart main-color-1-bg-hover"
+                                                                     href="" rel="nofollow"
+                                                                     data-product_sku="" data-product_id="2356">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                                &nbsp;مشاهده
+                                                            </a>
+                                                        </li>
+                                                    }
+                                                }
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="wpb_text_column wpb_content_element ">
+                                        <div class="wpb_wrapper">
+                                            <p style="text-align: center;">
+                                                <a class="btn button-button_32 btn-default "
+                                                   href="http://demo.leafcolor.com/applay/shop/">
+                                                    <i class="fa fa-paper-plane"></i>&nbsp;&nbsp;فهرست همه&nbsp;&nbsp;<i class="fa fa-angle-right"></i>
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vc_row-full-width"></div>
+                    </div>
+                </div><!--/ia_row-->
+                @* پرطرفدار ترین برنامه ها *@
+                <div class="ia_row ia_full_row  dark-div  ia_paralax ">
+                    <div class="container">
+                        <div class="vc_row wpb_row vc_row-fluid vc_custom_1415028102480">
+                            <div class="vc_col-sm-12 wpb_column vc_column_container ">
+                                <div class="wpb_wrapper">
+                                    <div class="ia-heading ia-heading-heading_9202 heading-align-center "
+                                         data-delay="0">
+                                        <h2 class="h1">                	برنامه های برگزیده                </h2>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="vc_empty_space" style="height: 10px;"><span class="vc_empty_space_inner"></span></div>
+                                    <div class="ia-grid-listing ia-post-grid ia-post-grid-5"
+                                         data-delay="0">
+                                        <div class="grid-wrap">
+                                            <div class="grid-listing ">
+
+                                                @{
+                                                    i = 0;
+                                                    foreach (var app in Model.ChosenApps)
+                                                    {
+                                                            <!--/grid-item-->
+                                                        <div class="grid-item grid-post-id-@cssClasses[i++]">
+                                                            <div class="grid-item-inner">
+                                                                <div class="grid-item-content app-item dark-div">
+                                                                    <div class="app-thumbnail">
+                                                                        <a title="@app.Name" href="">
+                                                                            <img width="500" height="500" style="background-color: white; margin:2px" title="@app.Name" alt="@app.Name" src='@Url.Action("GetIcon256", "Home", new { id = app.Guid})'>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="grid-overlay grid-has-icon">
+                                                                        <a title="@app.Name" class="overlay-top"
+                                                                           href="">
+                                                                            <img width="60" height="60" class="grip-app-icon" alt="تقویک کوچک" src="~/Content/Asset/Index/office-calendar-icon.png">
+
+                                                                            <h4>@app.Name</h4>
+                                                                            <div class="clearfix"></div>
+                                                                        </a>
+                                                                        <div class="overlay-bottom">
+                                                                            <div>
+                                                                                <span class="price">
+                                                                                    @*<del><span class="amount">3,000&nbsp;تومان</span></del>*@
+                                                                                    @*<ins>رایگان!</ins>*@
+                                                                                    @app.PriceText
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!--/app-item-->
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                }
+                                            </div>
+                                        </div>
+                                    </div><!--/app-grid-listing-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vc_row-full-width"></div>
+                    </div>
+                </div><!--/ia_row-->
+                @*جدیدترین برنامه ها *@
+                <div class="ia_row ia_full_row ">
+                    <div class="container">
+                        <div class="vc_row wpb_row vc_row-fluid vc_custom_1415027671756">
+                            <div class="vc_col-sm-12 wpb_column vc_column_container ">
+                                <div class="wpb_wrapper">
+                                    <div class="ia-heading ia-heading-heading_1050 heading-align-right " data-delay="0">
+                                        <h2>جدیدترین برنامه ها</h2>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="ia-woo ia-product-listing">
+                                        <div class="woocommerce columns-6">
+                                            <ul class="products">
+                                                @{
+                                                    i = 0;
+                                                    string cssClass = string.Empty;
+                                                    foreach (var app in Model.NewApps)
+                                                    {
+                                                        if (i == 0) { cssClass = "first"; }
+                                                        if (i == 1) { cssClass = "sale"; }
+                                                        if (i == 5) { cssClass = "last"; }
+                                                        else { cssClass = string.Empty; }
+
+                                                        <li class="post-@cssClasses[i++] product type-product status-publish has-post-thumbnail @cssClass shipping-taxable purchasable product-type-simple product-cat-tools product-cat-productivity product-cat-photography product-cat-media-3 product-tag-tools-2 product-tag-slider product-tag-photo instock">
+                                                            <div class="simple-thumbnail">
+                                                                <a title="@app.Name" href="">
+                                                                    <img width="263" height="263" class="app-icon-img" src='@Url.Action("GetIcon256", "Home", new { id = app.Guid})'>
+                                                                </a>
+                                                            </div>
+                                                            <div class="item-content ">
+                                                                <h4 class="product-title"><a title="@app.Name" class="main-color-1-hover" href="">@app.Name</a></h4><span class="price"><span class="amount">@app.PriceText</span></span>
+                                                            </div><a class="button add_to_cart_button product_type_simple ia-addtocart main-color-1-bg-hover"
+                                                                     href="" rel="nofollow"
+                                                                     data-product_sku="" data-product_id="2356">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                                &nbsp;مشاهده
+                                                            </a>
+                                                        </li>
+
+                                                    }
+                                                }
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vc_row-full-width"></div>
+                    </div>
+                </div><!--/ia_row-->
+                @* برنامه های پر طرفدار  *@
+                <div class="ia_row ia_full_row ">
+                    <div class="container">
+                        <div class="vc_row wpb_row vc_row-fluid vc_custom_1415027800980">
+                            <div class="vc_col-sm-12 wpb_column vc_column_container ">
+                                <div class="wpb_wrapper">
+                                    <div class="ia-heading ia-heading-heading_2247 heading-align-right " data-delay="0">
+                                        <h2>برنامه های پر طرفدار</h2>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="ia-woo ia-product-listing">
+                                        <div class="woocommerce columns-6">
+                                            <ul class="products">
+                                                @{
+                                                    var cssClasses2 = new string[]
+                                                    {
+                                                                    "1739", "1743", "1745", "1779", "1810", "1838"
+                                                    };
+
+
+                                                    i = 0;
+                                                    cssClass = string.Empty;
+                                                    foreach (var app in Model.NewApps)
+                                                    {
+                                                        if (i == 0) { cssClass = "first"; }
+                                                        if (i == 5) { cssClass = "last sale"; }
+                                                        else { cssClass = string.Empty; }
+                                                        <li class="post-@cssClasses2[i++] product type-product status-publish has-post-thumbnail @cssClass shipping-taxable purchasable product-type-simple product-cat-action product-cat-games product-tag-game product-tag-hot instock">
+                                                            <div class="simple-thumbnail">
+                                                                <a title="@app.Name" href="">
+                                                                    <img width="263" height="263" class="app-icon-img"
+                                                                         src='@Url.Action("GetIcon256", "Home", new { id = app.Guid})'>
+                                                                </a>
+                                                            </div>
+                                                            <div class="item-content ">
+                                                                <h4 class="product-title">
+                                                                    <a title="@app.Name" class="main-color-1-hover"
+                                                                       href="">
+                                                                        @app.Name
+                                                                    </a>
+                                                                </h4><span class="price">
+                                                                    <span class="amount">@app.PriceText</span>
+                                                                </span>
+                                                                <div title="نمره 4.00 از 5" class="star-rating">
+                                                                    <span style="width: 80%;">
+                                                                        <strong class="rating">4.00</strong>از
+                                                                        5
+                                                                    </span>
+                                                                </div>
+                                                            </div><a class="button add_to_cart_button product_type_simple ia-addtocart main-color-1-bg-hover"
+                                                                     href="" rel="nofollow"
+                                                                     data-product_sku="" data-product_id="1739">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                                &nbsp;مشاهده
+                                                            </a>
+                                                        </li>
+                                                    }
+                                                }
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vc_row-full-width"></div>
+                    </div>
+                </div><!--/ia_row-->
+                @* بازی های ویژه *@
+                <div class="ia_row ia_full_row  dark-div  ia_paralax ">
+                    <div class="container">
+                        <div class="vc_row wpb_row vc_row-fluid vc_custom_1415028133110">
+                            <div class="vc_col-sm-12 wpb_column vc_column_container ">
+                                <div class="wpb_wrapper">
+                                    <div class="ia-heading ia-heading-heading_5825 heading-align-center "
+                                         data-delay="0">
+                                        <h2>بازی های ویژه</h2>
+                                        <div class="clearfix"></div>
+                                    </div><section class="ia-post-carousel ia-post-carousel-4359 "
+                                                   data-delay="0">
+                                        <div class="post-carousel-wrap">
+                                            <div class="is-carousel carousel-has-control " data-navigation="1" data-items="3">
+                                                @foreach (var app in Model.SpecialGames)
+                                                {
+                                                    <div class="post-carousel-item grid-item">
+                                                        <div class="grid-item-inner">
+                                                            <div class="grid-item-content app-item dark-div">
+                                                                <div class="app-thumbnail">
+                                                                    <a title="@app.Name" href="">
+                                                                        <img width="500" height="500" style="background-color:white" title="@app.Name" alt="@app.Name" src='@Url.Action("GetIcon256", "Home", new { id = app.Guid})'>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="grid-overlay grid-has-icon">
+                                                                    <a title="@app.Name" class="overlay-top"
+                                                                       href="">
+                                                                        <img width="60" height="60" class="grip-app-icon" src="~/Content/Asset/Index/unnamed7.png">
+
+                                                                        <h4>@app.Name</h4>
+                                                                        <div class="clearfix"></div>
+                                                                    </a>
+                                                                    <div class="overlay-bottom">
+                                                                        <div class="star-rating">
+                                                                            <span style="width: 80%;">
+                                                                                <strong class="rating"
+                                                                                        itemprop="ratingValue">4.00</strong> از 5
+                                                                            </span>
+                                                                        </div>
+                                                                        <div>
+                                                                            <span class="price"><span class="amount">@app.PriceText</span></span>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!--/app-item-->
+                                                        </div>
+                                                    </div><!--/post-carousel-item-->
+                                                }
+                                            </div>
+                                        </div>
+                                    </section><!--/ia-post-carousel-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vc_row-full-width"></div>
+                    </div>
+                </div><!--/ia_row-->
+                @* بازی های پرطرفدار *@
+                <div class="ia_row ia_full_row ">
+                    <div class="container">
+                        <div class="vc_row wpb_row vc_row-fluid vc_custom_1415028165168">
+                            <div class="vc_col-sm-12 wpb_column vc_column_container ">
+                                <div class="wpb_wrapper">
+                                    <div class="ia-heading ia-heading-heading_2444 heading-align-right " data-delay="0">
+                                        <h2>                	بازی های پرطرفدار                </h2>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="ia-woo ia-product-listing">
+                                        <div class="woocommerce columns-6">
+                                            <ul class="products">
+
+                                                @{
+                                                    i = 0;
+                                                    cssClass = string.Empty;
+                                                    foreach (var app in Model.NewApps)
+                                                    {
+                                                        if (i == 0)
+                                                        {
+                                                            cssClass = "first";
+                                                        }
+                                                        if (i == 1)
+                                                        {
+                                                            cssClass = "sale";
+                                                        }
+                                                        if (i == 5)
+                                                        {
+                                                            cssClass = "last";
+                                                        }
+                                                        else
+                                                        {
+                                                            cssClass = string.Empty;
+                                                        }
+                                                        <li class="post-@cssClasses[i++] product type-product status-publish has-post-thumbnail @cssClass shipping-taxable purchasable product-type-simple product-cat-tools product-cat-productivity product-cat-photography product-cat-media-3 product-tag-tools-2 product-tag-slider product-tag-photo instock">
+                                                            <div class="simple-thumbnail">
+                                                                <a title="@app.Name" href="#">
+                                                                    <img width="263" height="263" class="app-icon-img" src='@Url.Action("GetIcon256", "Home", new { id = app.Guid})'>
+                                                                </a>
+                                                            </div>
+                                                            <div class="item-content ">
+                                                                <h4 class="product-title"><a title="@app.Name" class="main-color-1-hover" href="#">@app.Name</a></h4><span class="price"><span class="amount">@app.PriceText</span></span>
+                                                            </div><a class="button add_to_cart_button product_type_simple ia-addtocart main-color-1-bg-hover"
+                                                                     href="#" rel="nofollow"
+                                                                     data-product_sku="" data-product_id="2356">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                                &nbsp;مشاهده
+                                                            </a>
+                                                        </li>
+                                                    }
+                                                }
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="wpb_text_column wpb_content_element  vc_custom_1434433444986">
+                                        <div class="wpb_wrapper">
+                                            <p style="text-align: center;">
+                                                <a class="btn button-button_32 btn-default btn-lg "
+                                                   href="http://demo.leafcolor.com/applay/shop/">
+                                                    <i class="fa fa-paper-plane"></i>&nbsp;&nbsp;فهرست همه&nbsp;&nbsp;<i class="fa fa-angle-right"></i>
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vc_row-full-width"></div>
+                    </div>
+                </div><!--/ia_row-->
+                <p></p>
+            </article>
+        </div><!--/content-->
+    </div><!--/row-->
+</div><!--/body-->

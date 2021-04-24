@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="WindowsStore.Client.Developer.UI.Views.AppIconPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WindowsStore.Client.Developer.UI.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:WindowsStore.Client.Developer.Logic.ViewModels"
+    xmlns:mvvm="using:Prism.Windows.Mvvm"
+    d:DataContext="{d:DesignInstance viewModels:AppIconPageViewModel,IsDesignTimeCreatable=True}"
+    mvvm:ViewModelLocator.AutoWireViewModel="True"
+     mc:Ignorable="d" FlowDirection="RightToLeft"  HorizontalAlignment="Center" VerticalAlignment="Center">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel MinWidth="300" MaxWidth="300">
+            <Button x:Uid="ChooseIconButton" 
+                            x:Name="ChooseIcon256X256Button"
+                        Style="{StaticResource LightButtonStyle}" 
+                            Content="انتخاب آیکن 256X256" Click="ChooseIcon256X256Button_Click" />
+            
+            <Border Width="257" Height="257" Margin="0 20" BorderBrush="Orange" BorderThickness="1">
+            <Image x:Name="IconImage"   Height="256" Width="256" Source="{Binding AppDetail.AppIcon.Icon256X256}"></Image>
+</Border>
+            <Button x:Name="SaveButton" IsEnabled="False"
+                        Style="{StaticResource DarkButtonStyle}"
+                            Command="{Binding SaveIconCommand}"
+                            Content="ذخیره" />
+        </StackPanel>
+    </Grid>
+</Page>

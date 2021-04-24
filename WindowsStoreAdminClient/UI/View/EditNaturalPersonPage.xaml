@@ -1,0 +1,73 @@
+﻿<Page
+    x:Class="WindowsStore.Client.Admin.UI.View.EditNaturalPersonPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WindowsStore.Client.Admin.UI.View"
+    xmlns:vm="using:WindowsStore.Client.Admin.UI.ViewModel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" FlowDirection="RightToLeft">
+    <Page.DataContext>
+        <vm:EditNaturalPersonPageViewModel />
+    </Page.DataContext>
+    <Page.Resources>
+        <Style TargetType="TextBox" BasedOn="{StaticResource TextBoxBaseStyle}">
+            <Setter Property="Width" Value="250" />
+            <Setter Property="Margin" Value="10,10,0,10" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+        </Style>
+        <Style TargetType="ComboBox" BasedOn="{StaticResource ComboBoxBaseStyle}">
+            <Setter Property="Width" Value="250"/>
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Margin" Value="10,10,0,10" />
+        </Style>
+        <Style TargetType="PasswordBox" BasedOn="{StaticResource PasswordBoxBaseStyle}">
+            <Setter Property="Width" Value="250"/>
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Margin" Value="10,10,0,10" />
+        </Style>
+        <Style TargetType="ToggleSwitch" BasedOn="{StaticResource ToggleSwitchBaseStyle}">
+            <Setter Property="Width" Value="250"/>
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Margin" Value="10,10,0,10" />
+        </Style>
+
+    </Page.Resources>
+    <Page.BottomAppBar>
+        <CommandBar VerticalAlignment="Bottom">
+            <CommandBar.Content>
+                <Grid/>
+            </CommandBar.Content>
+            <AppBarButton x:Name="okButton" Icon="Accept" Label="تایید" Click="okButton_Click"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="29*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="10,10,10,113" d:LayoutOverrides="LeftPosition, RightPosition" Grid.Row="1">
+            <TextBox x:Name="firstNameTextBox" PlaceholderText="نام" Text="{Binding FirstName, Mode=TwoWay}" />
+            <TextBox x:Name="lastNameTextBox" Text="{Binding LastName, Mode=TwoWay}" PlaceholderText="نام خانوادگی" />
+            <TextBox x:Name="primaryEmailTextBox" Text="{Binding PrimaryEmail, Mode=TwoWay}" PlaceholderText="پست الکترونیک" />
+            <TextBox x:Name="nationalCodeTextBox" Text="{Binding NationalCode, Mode=TwoWay}" PlaceholderText="کدملی" />
+            <ComboBox x:Name="sexualityComboBox" PlaceholderText="جنسیت" SelectedValue="{Binding Sexuality}"/>
+            <TextBox x:Name="ageTextBox"  Text="{Binding Age, Mode=TwoWay}" PlaceholderText="سن" InputScope="AlphanumericPin" />
+
+        </StackPanel>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="اطلاعات شخصی" Margin="10,20,0,20" d:LayoutOverrides="Height, TopPosition, BottomPosition"/>
+        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" TextWrapping="Wrap" Text="حساب کاربری/نقش ها" Grid.Column="1" Margin="10,20,0,20" d:LayoutOverrides="Height, TopPosition, BottomPosition"/>
+        <StackPanel Margin="10,10,10,113" Grid.Row="1" Grid.Column="1" d:LayoutOverrides="LeftPosition, RightPosition">
+            <PasswordBox x:Name="passwordBox" PlaceholderText="کلمه عبور" Password="{Binding Password}"/>
+            <PasswordBox x:Name="confirmPasswordBox" PlaceholderText="تکرار کلمه عبور"/>
+            <ToggleSwitch Header="مدیر (Admin)" OffContent="خیر" OnContent="بله" IsOn="{Binding IsAdmin}"/>
+            <ToggleSwitch x:Name="toggleSwitch" Header="توسعه گر (Developer)" OffContent="خیر" OnContent="بله" IsOn="{Binding IsDeveloper}"/>
+            <ToggleSwitch Header="قفل شده (Locked Out)" OffContent="خیر" OnContent="بله" IsOn="{Binding IsLockedOut}"/>
+        </StackPanel>
+
+    </Grid>
+</Page>

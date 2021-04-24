@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutPaasteel" xml:space="preserve">
+    <value>درباره پاستیل</value>
+  </data>
+  <data name="Account" xml:space="preserve">
+    <value>حساب کاربری</value>
+  </data>
+  <data name="ActivationCodeSent" xml:space="preserve">
+    <value>کد فعال سازی ارسال شد.</value>
+  </data>
+  <data name="AppDownloadCompletedMessage" xml:space="preserve">
+    <value>برنامه '{0}' دانلود شد. بعد از بستن این پیام، پنجره نصب ظاهر می‌شود. با انتخاب گزینه Install نصب برنامه در پشت صحنه شروع می‌شود. با توجه به حجم برنامه، نصب برنامه بین چند ثانیه تا چند دقیقه طول می‌کشد.</value>
+  </data>
+  <data name="AppDownloaded" xml:space="preserve">
+    <value>برنامه دانلود شد</value>
+  </data>
+  <data name="AppInstallationFailedMessage" xml:space="preserve">
+    <value>هنگام نصب برنامه مشکلی پیش آمد. برنامه را دوباره دانلود کنید.</value>
+  </data>
+  <data name="Applications" xml:space="preserve">
+    <value>برنامه‌های کاربردی</value>
+  </data>
+  <data name="BackgroundTransferStatus_Canceled" xml:space="preserve">
+    <value>لغو شده</value>
+  </data>
+  <data name="BackgroundTransferStatus_Completed" xml:space="preserve">
+    <value>دانلود شده</value>
+  </data>
+  <data name="BackgroundTransferStatus_Error" xml:space="preserve">
+    <value>خطا در دانلود فایل</value>
+  </data>
+  <data name="BackgroundTransferStatus_Idle" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="BackgroundTransferStatus_PausedByApplication" xml:space="preserve">
+    <value>متوقف شده</value>
+  </data>
+  <data name="BackgroundTransferStatus_PausedCostedNetwork" xml:space="preserve">
+    <value>متوقف شده</value>
+  </data>
+  <data name="BackgroundTransferStatus_PausedNoNetwork" xml:space="preserve">
+    <value>منتظر شبکه</value>
+  </data>
+  <data name="BackgroundTransferStatus_PausedSystemPolicy" xml:space="preserve">
+    <value>متوقف شده</value>
+  </data>
+  <data name="BackgroundTransferStatus_Running" xml:space="preserve">
+    <value>در حال دانلود</value>
+  </data>
+  <data name="Byte" xml:space="preserve">
+    <value>بایت</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>بستن</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>دانلود</value>
+  </data>
+  <data name="Downloads" xml:space="preserve">
+    <value>دانلودها</value>
+  </data>
+  <data name="EmailIsNotAvailableForRegistration" xml:space="preserve">
+    <value>پست الکترونیک مشخص شده قابل استفاده نیست. لطفا آدرس پست الکترونیک دیگری را وارد کنید.</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="ErrorInCheckingForUpdatesMessage" xml:space="preserve">
+    <value>هنگام ارتباط با سرور خطایی رخ داد</value>
+  </data>
+  <data name="ErrorOccuredInUserRegistration" xml:space="preserve">
+    <value>هنگام ثبت نام خطایی رخ داد. لطفا از اتصال گوشی خود به اینترنت مطمئن شوید.</value>
+  </data>
+  <data name="ErrorOcurredWhileActivatingProfile" xml:space="preserve">
+    <value>هنگام فعال سازی حساب کاربری خطایی رخ داد. لطفا بعد از چند لحظه دوباره تلاش کنید.</value>
+  </data>
+  <data name="ErrorOcurredWhileResendingActivationCode" xml:space="preserve">
+    <value>هنگام ارسال کد فعال سازی مشکلی پیش آمد. لطفا مطمئن شوید که به اینترنت دسترسی دارید و دوباره سعی کنید.</value>
+  </data>
+  <data name="Free" xml:space="preserve">
+    <value>رایگان</value>
+  </data>
+  <data name="Game" xml:space="preserve">
+    <value>بازی</value>
+  </data>
+  <data name="GigaByte" xml:space="preserve">
+    <value>گیگابایت</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>خانه</value>
+  </data>
+  <data name="InstallApp" xml:space="preserve">
+    <value>نصب برنامه</value>
+  </data>
+  <data name="InstallationStatus_InstallationFailed" xml:space="preserve">
+    <value>خطا در نصب برنامه</value>
+  </data>
+  <data name="InstallationStatus_Installed" xml:space="preserve">
+    <value>نصب شد</value>
+  </data>
+  <data name="InstallationStatus_Installing" xml:space="preserve">
+    <value>در حال نصب</value>
+  </data>
+  <data name="InstallationStatus_InstallingAttempt2" xml:space="preserve">
+    <value>تلاش مجدد برای نصب (1)</value>
+  </data>
+  <data name="InstallationStatus_InstallingAttempt3" xml:space="preserve">
+    <value>تلاش مجدد برای نصب (2)</value>
+  </data>
+  <data name="InstallationStatus_Waiting" xml:space="preserve">
+    <value>آماده شدن برای تلاش مجدد</value>
+  </data>
+  <data name="InvalidConfirmPaasword" xml:space="preserve">
+    <value>کلمه عبور با تکرار آن یکسان نیست</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>پست الکترونیک نامعتبر است.</value>
+  </data>
+  <data name="InvalidFirstName" xml:space="preserve">
+    <value>لطفا نام را وارد کنید.</value>
+  </data>
+  <data name="InvalidLastName" xml:space="preserve">
+    <value>لطفا نام خانوادگی را وارد کنید.</value>
+  </data>
+  <data name="InvalidPassword" xml:space="preserve">
+    <value>کلمه عبور معتبر نیست. طول کلمه عبور حداقل 5 حرف است.</value>
+  </data>
+  <data name="InvalidUsernameOrPassword" xml:space="preserve">
+    <value>نام کاربری یا کلمه عبور اشتباه است.</value>
+  </data>
+  <data name="KilloByte" xml:space="preserve">
+    <value>کیلوبایت</value>
+  </data>
+  <data name="MandatoryUpdate" xml:space="preserve">
+    <value>بروز رسانی الزامی</value>
+  </data>
+  <data name="MandatoryUpdateIsAvailableMessage" xml:space="preserve">
+    <value>یک بروز رسانی الزامی برای پاستیل موجود است. قبل از ادامه باید نسخه جدید را نصب نمایید. بعد از تایید این پیام، دانلود و نصب نسخه جدید به صورت خودکار آغاز می‌شود.</value>
+  </data>
+  <data name="MegaByte" xml:space="preserve">
+    <value>مگابایت</value>
+  </data>
+  <data name="NewUpdateIsAvailableMessage" xml:space="preserve">
+    <value>نسخه جدیدتر نرم‌افزار پاستیل (نسخه {0}.{1}.{2}) موجود است. دانلود شود؟</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>خیر</value>
+  </data>
+  <data name="NoInternetAccessMessage" xml:space="preserve">
+    <value>دسترسی به اینترنت وجود ندارد</value>
+  </data>
+  <data name="NotChecked" xml:space="preserve">
+    <value>بررسی نشده</value>
+  </data>
+  <data name="Of" xml:space="preserve">
+    <value>از</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>تایید</value>
+  </data>
+  <data name="Paasteel" xml:space="preserve">
+    <value>پاستیل</value>
+  </data>
+  <data name="PaasteelDownloadCompletedMessage" xml:space="preserve">
+    <value>نسخه جدید نرم‌افزار پاستیل دانلود شده و آماده نصب است. لطفا بعد از بستن این پیام، گزینه نصب را از پنجره‌ای که باز می‌شود انتخاب کنید.</value>
+  </data>
+  <data name="ProfileActivation" xml:space="preserve">
+    <value>فعال سازی حساب کاربری</value>
+  </data>
+  <data name="ReTry" xml:space="preserve">
+    <value>تلاش مجدد</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>تنظیمات</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>ورود</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>ثبت نام</value>
+  </data>
+  <data name="Toman" xml:space="preserve">
+    <value>تومان</value>
+  </data>
+  <data name="VerificationCodeIsInvalid" xml:space="preserve">
+    <value>کد فعال سازی نامعتبر است.</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>بله</value>
+  </data>
+  <data name="YouHaveLatestPaasteelVersionMessage" xml:space="preserve">
+    <value>شما از آخرین نسخه نرم‌افزار پاستیل استفاده می‌کنید.</value>
+  </data>
+  <data name="YourProfileActivated" xml:space="preserve">
+    <value>حساب کاربری شما فعال شد.</value>
+  </data>
+  <data name="{0}Of{1}" xml:space="preserve">
+    <value>{1} از {0}</value>
+  </data>
+</root>

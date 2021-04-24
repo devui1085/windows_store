@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Store.DataContract.SoapFaults" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Store.DataContract.SoapFaults" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1578/Service/DeveloperService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Store.Common.Enum" />
+  <xs:complexType name="GeneralInternalFault">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Store.Common.Enum" minOccurs="0" name="FaultCode" type="q1:FaultCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GeneralInternalFault" nillable="true" type="tns:GeneralInternalFault" />
+  <xs:complexType name="AuthenticationFault">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Reason" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuthenticationFault" nillable="true" type="tns:AuthenticationFault" />
+</xs:schema>

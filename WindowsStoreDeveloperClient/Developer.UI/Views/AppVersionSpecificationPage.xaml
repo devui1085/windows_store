@@ -1,0 +1,131 @@
+﻿<Page
+    x:Class="WindowsStore.Client.Developer.UI.Views.AppVersionSpecificationPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WindowsStore.Client.Developer.UI.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:WindowsStore.Client.Developer.Logic.ViewModels"
+    xmlns:mvvm="using:Prism.Windows.Mvvm"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:behaviors="using:WindowsStore.Client.Developer.UI.Behaviors"
+    xmlns:triggers="using:WindowsStore.Client.Developer.UI.Triggers"
+    d:DataContext="{d:DesignInstance viewModels:AppVersionSpecificationPageViewModel,IsDesignTimeCreatable=True}"
+    mvvm:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d" FlowDirection="RightToLeft"   VerticalAlignment="Center" >
+    <Page.Resources>
+        <Style x:Key="StackPanelStyle" TargetType="StackPanel" BasedOn="{StaticResource BaseStackPanelStyle}" >
+            <Setter Property="Margin" Value="10" />
+        </Style>
+        <Style x:Key="PanelStyle" TargetType="StackPanel" >
+            <Setter Property="Margin" Value="0 20"/>
+        </Style>
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <!-- Visual States -->
+        <VisualStateManager.VisualStateGroups>
+
+            <!--  Visual states reflect the application's view state  -->
+            <VisualStateGroup x:Name="ApplicationViewStates">
+                <VisualState x:Name="DefaultLayout">
+                    <VisualState.StateTriggers>
+                        <triggers:LayoutTrigger LayoutState="Landscape" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="VersionGrid.HorizontalAlignment"  Value="Left" />
+                        <Setter Target="PackageGrid.(RelativePanel.RightOf)" Value="VersionGrid" />
+                        <Setter Target="PackageGrid.Margin" Value="30 0 0 0" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="PortraitLayout">
+                    <VisualState.StateTriggers>
+                        <triggers:LayoutTrigger LayoutState="Portrait" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="PackageGrid.(RelativePanel.Below)" Value="VersionGrid" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="MinimalLayout">
+                    <VisualState.StateTriggers>
+                        <triggers:LayoutTrigger LayoutState="Minimal" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="PackageGrid.(RelativePanel.Below)" Value="VersionGrid" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <ScrollViewer Grid.Row="0"  VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Auto" >
+            <RelativePanel HorizontalAlignment="Center">
+                <Grid x:Name="VersionGrid" HorizontalAlignment="Center" >
+                    <StackPanel Style="{StaticResource StackPanelStyle}" >
+                        <TextBlock  Style="{StaticResource LableColor}" >
+                        <Run Text="مشخصات نسخه"></Run><LineBreak />
+                        </TextBlock>
+                        <!--  App Name  -->
+
+                        <TextBlock Text="شماره نسخه"/>
+                        <StackPanel x:Name="AppNamePanel" Margin="0,5,0,0" >
+                            <local:VersionUserControl FlowDirection="LeftToRight" DataContext="{Binding VersionViewModel,Mode=TwoWay}" >
+
+                            </local:VersionUserControl>
+                            <TextBlock x:Name="ErrorsAppVersion"
+                           Style="{StaticResource ErrorMessageStyle}"
+                           Text="{Binding AppVersion.Errors[Version],
+                                          Converter={StaticResource FirstErrorConverter}}"
+                           TextWrapping="Wrap" />
+                        </StackPanel>
+
+                        <!--  App Description  -->
+                        <StackPanel x:Name="AppDescriptionPanel"  Margin="0 10 0 0">
+                            <TextBlock>امکانات و ویژگی ها*</TextBlock>
+                            <TextBox x:Uid="AppDescriptionTextBox" Width="auto" Height="auto" MinHeight="170"
+                         x:Name="AppDescriptionTextBox"
+                         AcceptsReturn="True"
+                         
+                         Text="{Binding AppVersion.Description, Mode=TwoWay}" TextWrapping="Wrap">
+                                <interactivity:Interaction.Behaviors>
+                                    <behaviors:HighlightFormFieldOnErrors PropertyErrors="{Binding AppVersion.Errors[Description]}" />
+                                </interactivity:Interaction.Behaviors>
+                            </TextBox>
+                            <TextBlock x:Name="ErrorsAppDescription"
+                           Style="{StaticResource ErrorMessageStyle}"
+                           Text="{Binding AppVersion.Errors[Description],
+                                          Converter={StaticResource FirstErrorConverter}}"
+                           TextWrapping="Wrap" />
+                            <TextBlock FontStyle="Italic" FontSize="10">
+                                <Run>
+                                 جهت بروز رسانی "امکانات و ویژگی ها" سایر فیلدها را تغییر ندهید                              </Run>
+                            </TextBlock>
+                        </StackPanel>
+
+                    </StackPanel>
+                </Grid>
+                <Grid x:Name="PackageGrid"  >
+                    <StackPanel Style="{StaticResource StackPanelStyle}" >
+                        <TextBlock Style="{StaticResource LableColor}" >
+                        <Run Text="پکیج ها"></Run><LineBreak />
+                        </TextBlock>
+                        <StackPanel x:Name="ArmPackagePanel" Style="{StaticResource PanelStyle}" >
+                            <Button x:Name="SelectArmPackageButton" Content="انتخاب پکیج ARM"  IsEnabled="{Binding IsArmPackageMandatory}"  Style="{StaticResource LightButtonStyle}" Click="SelectArmPackageButton_Click"></Button>
+                            <TextBlock x:Name="ArmPackagePackageName" />
+                            <ProgressBar x:Name="ArmProgressBar" IsEnabled="{Binding IsArmPackageMandatory}" ></ProgressBar>
+                        </StackPanel>
+                        <StackPanel  x:Name="X64PackagePanel"  Style="{StaticResource PanelStyle}"    >
+                            <Button x:Name="SelectX64PackageButton" Content="انتخاب پکیج x64" IsEnabled="{Binding IsX64PackageMandatory}" Style="{StaticResource LightButtonStyle}" Click="SelectX64PackageButton_Click"></Button>
+                            <TextBlock x:Name="X64PackagePackageName" />
+                            <ProgressBar x:Name="X64ProgressBar" IsEnabled="{Binding IsX64PackageMandatory}"></ProgressBar>
+                        </StackPanel>
+                        <StackPanel x:Name="X86PackagePanel" Style="{StaticResource PanelStyle}"  >
+                            <Button x:Name="SelectX86PackageButton" Content="انتخاب پکیج x86" IsEnabled="{Binding IsX86PackageMandatory}" Style="{StaticResource LightButtonStyle}" Click="SelectX86PackageButton_Click"></Button>
+                            <TextBlock x:Name="X32PackagePackageName" />
+                            <ProgressBar x:Name="X86ProgressBar" IsEnabled="{Binding IsX86PackageMandatory}"></ProgressBar>
+                        </StackPanel>
+                        <Button  x:Name="SendPackagesButton" Content="ارسال" Margin="0 32" Style="{StaticResource DarkButtonStyle}" Click="SendPackagesButton_Click"></Button>
+                        <Button  x:Name="CancelSendingPackagesButton" Content="لغو" Margin="0 32" Style="{StaticResource DarkButtonStyle}" Click="CancelSendingPackagesButton_Click" Visibility="Collapsed"></Button>
+                    </StackPanel>
+                </Grid>
+            </RelativePanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

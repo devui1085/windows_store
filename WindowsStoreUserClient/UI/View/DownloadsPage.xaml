@@ -1,0 +1,121 @@
+﻿<Page
+    x:Class="WindowsStore.Client.User.UI.View.DownloadsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WindowsStore.Client.User.UI.View"
+    xmlns:vm="using:WindowsStore.Client.User.UI.ViewModel"
+    xmlns:pm="using:WindowsStore.Client.User.Common.PresentationModel"
+    xmlns:converters="using:WindowsStore.Client.User.UI.Infrastructure.ValueConverters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" FlowDirection="RightToLeft" Loaded="Page_Loaded">
+    <Page.DataContext>
+        <vm:DownloadsPageViewModel/>
+    </Page.DataContext>
+    <Page.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+
+        <DataTemplate x:Key="CurrentDownloadsItemTemplate">
+            <Grid Margin="0,8" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+                <Grid.Children>
+                    <Border>
+                        <SymbolIcon Symbol="Download" />
+                    </Border>
+                    <StackPanel Grid.Column="1"  >
+                        <TextBlock Text="{Binding AppName}" Margin="0,0,0,3" Style="{ThemeResource BodyTextBlockStyle}"/>
+                        <ProgressBar Height="7" VerticalAlignment="Stretch" Background="#FFE8E8E8" Foreground="#FFE68278" Value="{Binding ProgressPercentage}" Margin="0,0,0,3"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding StatusString}" Grid.Column="1" TextAlignment="Right" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                            <StackPanel Grid.Column="0" Orientation="Horizontal" >
+                                <TextBlock Text="{Binding BytesReceivedString}" Style="{ThemeResource CaptionTextBlockStyle}"  />
+                                <TextBlock Text="از" Margin="5,0,5,0" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                                <TextBlock Text="{Binding TotallBytesToReceiveString}" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                    <Canvas Grid.Column="2">
+                        <AppBarButton Icon="Pause" Width="50" Height="50" Command="{Binding DataContext.PauseDownloadCommand, ElementName=currentDownloadsListView}" CommandParameter="{Binding}"
+                                      Visibility="{Binding CanPauseDownload, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                        <AppBarButton Icon="Play" Width="50" Height="50"  Command="{Binding DataContext.ResumeDownloadCommand, ElementName=currentDownloadsListView}" CommandParameter="{Binding}"
+                                      Visibility="{Binding CanResumeDownload, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    </Canvas>
+                </Grid.Children>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="CompletedDownloadsItemTemplate">
+            <Grid Margin="0,8" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+                <Grid.Children>
+                    <Border>
+                        <SymbolIcon Symbol="Switch" />
+                    </Border>
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Grid.Column="1"  Text="{Binding AppName}"  Style="{ThemeResource BodyTextBlockStyle}" />
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="{Binding InstallationStatusString}" Style="{ThemeResource CaptionTextBlockStyle}" Grid.ColumnSpan="2"/>
+                            <ProgressBar Height="7" Grid.Column="1" IsIndeterminate="True" Visibility="{Binding ShowInstallingProgress, Converter={StaticResource BooleanToVisibilityConverter}}" Background="#33FD7171" Width="100"  />
+                        </Grid>
+                    </StackPanel>
+                    <AppBarButton Grid.Column="2" Icon="Add" Width="50" Height="50" Command="{Binding DataContext.InstallAppCommand, ElementName=completedDownloadsListView}" CommandParameter="{Binding}" />
+
+                </Grid.Children>
+            </Grid>
+        </DataTemplate>
+
+        <Style x:Key="ListViewItemContainerStyle" TargetType="ListViewItem">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="Padding" Value="0"/>
+        </Style>
+        
+        <Style TargetType="TextBlock" BasedOn="{StaticResource NormalTextBlockStyle}">
+        </Style>
+        
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" d:DataContext="{Binding Source={StaticResource SampleDataSource}}">
+        <Grid.Children>
+            <StackPanel>
+                <StackPanel  Visibility="{Binding ShowDownloadsSection, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <Border Background="#FFFBF2F2">
+                        <TextBlock Padding="10,10,0,10">دانلودهای جاری</TextBlock>
+                    </Border>
+                    <ListView 
+                    x:Name="currentDownloadsListView"
+                    ItemTemplate="{StaticResource CurrentDownloadsItemTemplate}"
+                    ItemsSource="{Binding DownloadManager.CurrentDownloads}"
+                    ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" Margin="0,0,0,40" />
+                </StackPanel>
+
+                <StackPanel Visibility="{Binding ShowInstallationSection, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <Border Background="#FFFBF2F2">
+                        <TextBlock Padding="10,10,0,10">در حال نصب</TextBlock>
+                    </Border>
+
+                    <ListView 
+                    x:Name="completedDownloadsListView"
+                    ItemTemplate="{StaticResource CompletedDownloadsItemTemplate}"
+                    ItemsSource="{Binding DownloadManager.CompletedDownloads}"
+                    ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" />
+                </StackPanel>
+            </StackPanel>
+        </Grid.Children>
+    </Grid>
+</Page>

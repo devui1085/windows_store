@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="Paasteel.com" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="Paasteel.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="Paasteel.com/Imports">
+      <xsd:import schemaLocation="http://localhost:1578/Service/DeveloperService.svc?xsd=xsd0" namespace="Paasteel.com" />
+      <xsd:import schemaLocation="http://localhost:1578/Service/DeveloperService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1578/Service/DeveloperService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Store.StoreService.DataContracts" />
+      <xsd:import schemaLocation="http://localhost:1578/Service/DeveloperService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Store.Common.Enum" />
+      <xsd:import schemaLocation="http://localhost:1578/Service/DeveloperService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/WindowsStore.StoreService.DataContracts.SoapFaults" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDeveloperService_RegisterNaturalPerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterNaturalPerson" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_RegisterNaturalPerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterNaturalPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_GetName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetName" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_GetName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_SetSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetSession" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_SetSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_SetSession_SessionFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/WindowsStore.StoreService.DataContracts.SoapFaults" name="detail" element="q1:SessionFault" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_GetSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSession" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_GetSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_SetRealSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetRealSession" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_SetRealSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetRealSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_SetRealSession_SessionFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/WindowsStore.StoreService.DataContracts.SoapFaults" name="detail" element="q2:SessionFault" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_GetRealSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRealSession" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_GetRealSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRealSessionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDeveloperService">
+    <wsdl:operation name="RegisterNaturalPerson">
+      <wsdl:input wsaw:Action="Paasteel.com/IDeveloperService/RegisterNaturalPerson" message="tns:IDeveloperService_RegisterNaturalPerson_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.com/IDeveloperService/RegisterNaturalPersonResponse" message="tns:IDeveloperService_RegisterNaturalPerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetName">
+      <wsdl:input wsaw:Action="Paasteel.com/IDeveloperService/GetName" message="tns:IDeveloperService_GetName_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.com/IDeveloperService/GetNameResponse" message="tns:IDeveloperService_GetName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetSession">
+      <wsdl:input wsaw:Action="Paasteel.com/IDeveloperService/SetSession" message="tns:IDeveloperService_SetSession_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.com/IDeveloperService/SetSessionResponse" message="tns:IDeveloperService_SetSession_OutputMessage" />
+      <wsdl:fault wsaw:Action="Paasteel.com/IDeveloperService/SetSessionSessionFaultFault" name="SessionFaultFault" message="tns:IDeveloperService_SetSession_SessionFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSession">
+      <wsdl:input wsaw:Action="Paasteel.com/IDeveloperService/GetSession" message="tns:IDeveloperService_GetSession_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.com/IDeveloperService/GetSessionResponse" message="tns:IDeveloperService_GetSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetRealSession">
+      <wsdl:input wsaw:Action="Paasteel.com/IDeveloperService/SetRealSession" message="tns:IDeveloperService_SetRealSession_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.com/IDeveloperService/SetRealSessionResponse" message="tns:IDeveloperService_SetRealSession_OutputMessage" />
+      <wsdl:fault wsaw:Action="Paasteel.com/IDeveloperService/SetRealSessionSessionFaultFault" name="SessionFaultFault" message="tns:IDeveloperService_SetRealSession_SessionFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRealSession">
+      <wsdl:input wsaw:Action="Paasteel.com/IDeveloperService/GetRealSession" message="tns:IDeveloperService_GetRealSession_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.com/IDeveloperService/GetRealSessionResponse" message="tns:IDeveloperService_GetRealSession_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,39 @@
+﻿<Page
+    x:Class="WindowsStore.Client.Developer.UI.Views.ConfirmRegistrationPage"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:WindowsStore.Client.Developer.Logic.ViewModels"
+    xmlns:triggers="using:WindowsStore.Client.Developer.UI.Triggers"
+    xmlns:local="using:WindowsStore.Client.Developer.UI.Views"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:behaviors="using:WindowsStore.Client.Developer.UI.Behaviors"
+    xmlns:mvvm="using:Prism.Windows.Mvvm"
+    d:DataContext="{d:DesignInstance viewModels:ConfirmRegistrationPageViewModel,IsDesignTimeCreatable=True}"
+    mvvm:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d" FlowDirection="RightToLeft"  HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center">
+    <Page.TopAppBar>
+        <AppBar Style="{StaticResource AppBarStyle}"
+                x:Uid="TopAppBar">
+            <local:TopAppBarUserControl />
+        </AppBar>
+    </Page.TopAppBar>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Padding="30" >
+        <StackPanel>
+        <TextBlock Margin="10">
+            <Run>کد تایید عضویت به ایمیل شما ارسال شد، لطفا با وارد کرد کد تایید ، عضویت خود را تکمیل نمایید</Run>
+        </TextBlock>
+            <TextBox x:Name="RegistrationConfirmCodeTextBox" Text="{Binding ActivationCode, Mode=TwoWay}"  Margin="0 10"></TextBox>
+            <Button x:Name="ActivateMembershipButton" Style="{StaticResource DarkButtonStyle}" Margin="0 10" Content="تایید عضویت" Command="{Binding ActivateAccountCommand}"></Button>
+
+            <TextBlock Margin="10">
+            <Run>در صورتی که کد فعال سازی را دریافت نکرده اید، مجددا آن را دریافت کنید  </Run>
+            </TextBlock>
+            <Button x:Name="ResendActivationCode" Style="{StaticResource LightButtonStyle}" Margin="0 10" Content="ارسال مجدد کد فعال سازی" Command="{Binding ResendActivationCodeCommand}"></Button>
+            <TextBlock Margin="10" Foreground="Green" Visibility="{Binding ActivationCodeIsSent,Converter ={StaticResource BooleanToVisibilityConverter}}">
+            <Run>کد فعال سازی به آدرس ایمیل شما ارسال شد، در صورت مشاهده نکردن ایمیل فعال سازی، Spam خود را بررسی کنید</Run>
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</Page>

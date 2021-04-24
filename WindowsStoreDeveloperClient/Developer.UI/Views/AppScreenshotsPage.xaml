@@ -1,0 +1,56 @@
+﻿<Page
+    x:Class="WindowsStore.Client.Developer.UI.Views.AppScreenshotsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WindowsStore.Client.Developer.UI.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:triggers="using:WindowsStore.Client.Developer.UI.Triggers"
+    xmlns:viewModels="using:WindowsStore.Client.Developer.Logic.ViewModels"
+    xmlns:mvvm="using:Prism.Windows.Mvvm"
+    d:DataContext="{d:DesignInstance viewModels:AppScreenshotsPageViewModel,IsDesignTimeCreatable=True}"
+    mvvm:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d" FlowDirection="RightToLeft"   VerticalAlignment="Center"
+    x:Name="Parent">
+    <Page.Resources>
+        <Style x:Key="ScreenshotStyle" TargetType="Image" >
+            <Setter Property="Margin" Value="5" />
+        </Style>
+        <Style x:Key="ScreenshotsGridViewStyle" TargetType="GridView" >
+            <Setter Property="Height" Value="470" />
+            <Setter Property="Margin" Value="0,10" />
+
+            <Setter Property="MinWidth" Value="270" />
+        </Style>
+        <Style x:Key="ItemStackPanelStyle" TargetType="StackPanel" >
+            <Setter Property="BorderBrush" Value="Orange" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
+        <ScrollViewer Grid.Row="0"  VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Auto" >
+            <StackPanel MaxWidth="650" HorizontalAlignment="Center" Margin="40 0">
+                <Button x:Name="SendMobileScreenshot"  Style="{StaticResource LightButtonStyle}" Content="ارسال تصویر" MinWidth="300" Click="SendMobileScreenshot_Click" />
+                <ScrollViewer Grid.Row="0"  VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" Visibility="{Binding Path=HasMobileScreenshot,Mode=TwoWay, Converter={StaticResource BooleanToVisibilityConverter}}" >
+                    <GridView x:Name="MobileScreenshotsGridView" ItemsSource="{Binding MobileScreenshots}" Style="{StaticResource ScreenshotsGridViewStyle}" >
+                        <GridView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </GridView.ItemsPanel>
+                        <GridView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Style="{StaticResource ItemStackPanelStyle}" >
+                                    <Image  Stretch="None"  Source="{Binding Thumbnail}"  />
+                                    <Button  Content="حذف" Command="{Binding Path=DataContext.RemoveScreenshotCommand, ElementName=Parent}" CommandParameter="{Binding}" Style="{StaticResource DarkButtonStyle}"></Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
+                </ScrollViewer>
+                <Button x:Name="ReturnToAppDetailButton"  Style="{StaticResource LightButtonStyle}" Content="ادامه ..." MinWidth="300" Margin="0 20"  Command="{Binding GoToAppDetailPageCommand}"/>
+            </StackPanel>
+        </ScrollViewer>
+
+    </Grid>
+</Page>

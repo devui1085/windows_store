@@ -1,0 +1,191 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainModel", "WindowsStore\DomainModel.csproj", "{5701D5FC-510A-4387-ACF4-06CE8DF42A82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{64D60AE4-F873-4BF4-BF4B-07055A0F7FB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{B9ED8297-E69E-4B9E-98D1-ACE2760D0B3C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{666AD5B2-9338-44E0-AF21-56F2C80359C5} = {666AD5B2-9338-44E0-AF21-56F2C80359C5}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainService", "DomainService\DomainService.csproj", "{147A74F5-13D7-44D6-B062-06D6F2A6AF83}"
+	ProjectSection(ProjectDependencies) = postProject
+		{666AD5B2-9338-44E0-AF21-56F2C80359C5} = {666AD5B2-9338-44E0-AF21-56F2C80359C5}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{70FF5D82-76B1-4785-848A-CEB8CFDCDE39}"
+	ProjectSection(ProjectDependencies) = postProject
+		{666AD5B2-9338-44E0-AF21-56F2C80359C5} = {666AD5B2-9338-44E0-AF21-56F2C80359C5}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0  Common", "0  Common", "{34ACBB15-5569-4F4F-853A-5A67825A94A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1  Model", "1  Model", "{B4AC8B03-642F-49B7-AFFF-52A2961A9A0B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2  Data Access", "2  Data Access", "{767FFE2C-7D48-40D0-BDFD-92650FACB477}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3  Business", "3  Business", "{C8D7302A-815A-483D-A626-77AFE381BC50}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4  Domain Service", "4  Domain Service", "{D3B0C7AF-658C-4529-8DAB-5C4F874BDDA6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6  Wcf Service", "6  Wcf Service", "{B45237C0-62FC-48B2-9973-6203D126F864}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreService", "StoreService\StoreService.csproj", "{B29B8669-0C1F-412E-8406-396C40829E68}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "8  Client", "8  Client", "{DB65FA03-53EA-4323-BB35-FD130E155E4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreClient", "StoreClient\StoreClient.csproj", "{6328A33D-FF24-44E7-A999-5847A423F42B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B29B8669-0C1F-412E-8406-396C40829E68} = {B29B8669-0C1F-412E-8406-396C40829E68}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "9  Test", "9  Test", "{54791241-1731-4834-83CC-0379D5B4E7AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{AF2DB75C-E9E4-4AB8-AC2C-1CE4A1870DAE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5  DataContract", "5  DataContract", "{38C04EE9-DD1A-4C3A-8C6D-833344F92FD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataContract", "DataContract\DataContract.csproj", "{16DB9E08-E8F4-47B7-9947-AD2ED57C91F7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "7  Presentation", "7  Presentation", "{4B88A972-3041-4DFB-84A4-4D2DBDD556E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portal", "Portal\Portal.csproj", "{D41B7AC9-F7E2-4E0C-9CC9-E6FE43F42B5D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B29B8669-0C1F-412E-8406-396C40829E68} = {B29B8669-0C1F-412E-8406-396C40829E68}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminPanel", "AppUploader\AdminPanel.csproj", "{91DF5221-114B-41DA-95CE-A4E48E14B8AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Localization", "Localization\Localization.csproj", "{666AD5B2-9338-44E0-AF21-56F2C80359C5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5701D5FC-510A-4387-ACF4-06CE8DF42A82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5701D5FC-510A-4387-ACF4-06CE8DF42A82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5701D5FC-510A-4387-ACF4-06CE8DF42A82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5701D5FC-510A-4387-ACF4-06CE8DF42A82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64D60AE4-F873-4BF4-BF4B-07055A0F7FB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64D60AE4-F873-4BF4-BF4B-07055A0F7FB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64D60AE4-F873-4BF4-BF4B-07055A0F7FB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64D60AE4-F873-4BF4-BF4B-07055A0F7FB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9ED8297-E69E-4B9E-98D1-ACE2760D0B3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9ED8297-E69E-4B9E-98D1-ACE2760D0B3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9ED8297-E69E-4B9E-98D1-ACE2760D0B3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9ED8297-E69E-4B9E-98D1-ACE2760D0B3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{147A74F5-13D7-44D6-B062-06D6F2A6AF83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{147A74F5-13D7-44D6-B062-06D6F2A6AF83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{147A74F5-13D7-44D6-B062-06D6F2A6AF83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{147A74F5-13D7-44D6-B062-06D6F2A6AF83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70FF5D82-76B1-4785-848A-CEB8CFDCDE39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70FF5D82-76B1-4785-848A-CEB8CFDCDE39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70FF5D82-76B1-4785-848A-CEB8CFDCDE39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70FF5D82-76B1-4785-848A-CEB8CFDCDE39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B29B8669-0C1F-412E-8406-396C40829E68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B29B8669-0C1F-412E-8406-396C40829E68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B29B8669-0C1F-412E-8406-396C40829E68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B29B8669-0C1F-412E-8406-396C40829E68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6328A33D-FF24-44E7-A999-5847A423F42B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6328A33D-FF24-44E7-A999-5847A423F42B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6328A33D-FF24-44E7-A999-5847A423F42B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6328A33D-FF24-44E7-A999-5847A423F42B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF2DB75C-E9E4-4AB8-AC2C-1CE4A1870DAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF2DB75C-E9E4-4AB8-AC2C-1CE4A1870DAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF2DB75C-E9E4-4AB8-AC2C-1CE4A1870DAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF2DB75C-E9E4-4AB8-AC2C-1CE4A1870DAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16DB9E08-E8F4-47B7-9947-AD2ED57C91F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16DB9E08-E8F4-47B7-9947-AD2ED57C91F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16DB9E08-E8F4-47B7-9947-AD2ED57C91F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16DB9E08-E8F4-47B7-9947-AD2ED57C91F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D41B7AC9-F7E2-4E0C-9CC9-E6FE43F42B5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D41B7AC9-F7E2-4E0C-9CC9-E6FE43F42B5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D41B7AC9-F7E2-4E0C-9CC9-E6FE43F42B5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D41B7AC9-F7E2-4E0C-9CC9-E6FE43F42B5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91DF5221-114B-41DA-95CE-A4E48E14B8AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91DF5221-114B-41DA-95CE-A4E48E14B8AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91DF5221-114B-41DA-95CE-A4E48E14B8AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91DF5221-114B-41DA-95CE-A4E48E14B8AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{666AD5B2-9338-44E0-AF21-56F2C80359C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{666AD5B2-9338-44E0-AF21-56F2C80359C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{666AD5B2-9338-44E0-AF21-56F2C80359C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{666AD5B2-9338-44E0-AF21-56F2C80359C5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5701D5FC-510A-4387-ACF4-06CE8DF42A82} = {B4AC8B03-642F-49B7-AFFF-52A2961A9A0B}
+		{64D60AE4-F873-4BF4-BF4B-07055A0F7FB7} = {767FFE2C-7D48-40D0-BDFD-92650FACB477}
+		{B9ED8297-E69E-4B9E-98D1-ACE2760D0B3C} = {C8D7302A-815A-483D-A626-77AFE381BC50}
+		{147A74F5-13D7-44D6-B062-06D6F2A6AF83} = {D3B0C7AF-658C-4529-8DAB-5C4F874BDDA6}
+		{70FF5D82-76B1-4785-848A-CEB8CFDCDE39} = {34ACBB15-5569-4F4F-853A-5A67825A94A5}
+		{B29B8669-0C1F-412E-8406-396C40829E68} = {B45237C0-62FC-48B2-9973-6203D126F864}
+		{6328A33D-FF24-44E7-A999-5847A423F42B} = {DB65FA03-53EA-4323-BB35-FD130E155E4E}
+		{AF2DB75C-E9E4-4AB8-AC2C-1CE4A1870DAE} = {54791241-1731-4834-83CC-0379D5B4E7AD}
+		{16DB9E08-E8F4-47B7-9947-AD2ED57C91F7} = {38C04EE9-DD1A-4C3A-8C6D-833344F92FD6}
+		{D41B7AC9-F7E2-4E0C-9CC9-E6FE43F42B5D} = {4B88A972-3041-4DFB-84A4-4D2DBDD556E9}
+		{91DF5221-114B-41DA-95CE-A4E48E14B8AD} = {DB65FA03-53EA-4323-BB35-FD130E155E4E}
+		{666AD5B2-9338-44E0-AF21-56F2C80359C5} = {34ACBB15-5569-4F4F-853A-5A67825A94A5}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 13
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://mehrta.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Business\\Business.csproj
+		SccProjectTopLevelParentUniqueName1 = WindowsStore.sln
+		SccProjectName1 = Business
+		SccLocalPath1 = Business
+		SccProjectUniqueName2 = WindowsStore\\DomainModel.csproj
+		SccProjectTopLevelParentUniqueName2 = WindowsStore.sln
+		SccProjectName2 = WindowsStore
+		SccLocalPath2 = WindowsStore
+		SccProjectUniqueName3 = DataAccess\\DataAccess.csproj
+		SccProjectTopLevelParentUniqueName3 = WindowsStore.sln
+		SccProjectName3 = DataAccess
+		SccLocalPath3 = DataAccess
+		SccProjectUniqueName4 = DomainService\\DomainService.csproj
+		SccProjectTopLevelParentUniqueName4 = WindowsStore.sln
+		SccProjectName4 = DomainService
+		SccLocalPath4 = DomainService
+		SccProjectUniqueName5 = Common\\Common.csproj
+		SccProjectTopLevelParentUniqueName5 = WindowsStore.sln
+		SccProjectName5 = Common
+		SccLocalPath5 = Common
+		SccProjectUniqueName6 = StoreService\\StoreService.csproj
+		SccProjectTopLevelParentUniqueName6 = WindowsStore.sln
+		SccProjectName6 = StoreService
+		SccLocalPath6 = StoreService
+		SccProjectUniqueName7 = StoreClient\\StoreClient.csproj
+		SccProjectTopLevelParentUniqueName7 = WindowsStore.sln
+		SccProjectName7 = StoreClient
+		SccLocalPath7 = StoreClient
+		SccProjectUniqueName8 = Test\\Test.csproj
+		SccProjectTopLevelParentUniqueName8 = WindowsStore.sln
+		SccProjectName8 = Test
+		SccLocalPath8 = Test
+		SccProjectUniqueName9 = DataContract\\DataContract.csproj
+		SccProjectTopLevelParentUniqueName9 = WindowsStore.sln
+		SccProjectName9 = DataContract
+		SccLocalPath9 = DataContract
+		SccProjectUniqueName10 = Portal\\Portal.csproj
+		SccProjectTopLevelParentUniqueName10 = WindowsStore.sln
+		SccProjectName10 = Portal
+		SccLocalPath10 = Portal
+		SccProjectUniqueName11 = AppUploader\\AdminPanel.csproj
+		SccProjectTopLevelParentUniqueName11 = WindowsStore.sln
+		SccProjectName11 = AppUploader
+		SccLocalPath11 = AppUploader
+		SccProjectUniqueName12 = Localization\\Localization.csproj
+		SccProjectTopLevelParentUniqueName12 = WindowsStore.sln
+		SccProjectName12 = Localization
+		SccLocalPath12 = Localization
+	EndGlobalSection
+EndGlobal

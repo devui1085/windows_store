@@ -1,0 +1,59 @@
+﻿<Page
+    x:Class="WindowsStore.Client.User.UI.View.SignUpPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WindowsStore.Client.User.UI.View"
+    xmlns:vm="using:WindowsStore.Client.User.UI.ViewModel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" Loaded="Page_Loaded" FlowDirection="RightToLeft">
+    <Page.DataContext>
+        <vm:SignUpPageViewModel/>
+    </Page.DataContext>
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <SlideNavigationTransitionInfo />
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
+    <Page.Resources>
+        <Style TargetType="TextBox" BasedOn="{StaticResource TextBoxStyleBase}">
+            <Setter Property="Margin" Value="0,5,0,20" />
+        </Style>
+        <Style TargetType="PasswordBox" BasedOn="{StaticResource PasswordBoxStyleBase}">
+            <Setter Property="Margin" Value="0,5,0,20" />
+        </Style>
+        <Style TargetType="Button" BasedOn="{StaticResource RedButtonStyle}">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="Margin" Value="0,50,0,0" />
+        </Style>
+        <Style TargetType="TextBlock" BasedOn="{StaticResource NormalTextBlockStyle}">
+        </Style>
+    </Page.Resources>
+    <Grid FlowDirection="RightToLeft" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="27*"/>
+            <ColumnDefinition Width="125*"/>
+            <ColumnDefinition Width="28*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1" Grid.Row="1" Grid.RowSpan="2">
+            <TextBlock>پست الکترونیک</TextBlock>
+            <TextBox x:Name="emailTextBox" Text="{Binding NaturalPerson.PrimaryEmail, Mode=TwoWay}"  TextAlignment="Left" FlowDirection="LeftToRight" InputScope="EmailNameOrAddress"/>
+            <TextBlock>کلمه عبور</TextBlock>
+            <PasswordBox x:Name="passwordBox" Password="{Binding NaturalPerson.Password, Mode=TwoWay}" FlowDirection="LeftToRight"/>
+            <TextBlock>تکرار کلمه عبور</TextBlock>
+            <PasswordBox x:Name="confirmPasswordBox" FlowDirection="LeftToRight"/>
+        </StackPanel>
+            <Button Grid.Row="2" Grid.Column="1" x:Name="signupButton" Content="ثبت نام" Click="signupButton_Click" Margin="0,0,0,50"/>
+        
+    </Grid>
+</Page>

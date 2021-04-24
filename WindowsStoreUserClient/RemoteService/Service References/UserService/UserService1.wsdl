@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="Paasteel.com" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="Paasteel.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="Paasteel.com/Imports">
+      <xsd:import schemaLocation="http://localhost:1578/Service/UserService.svc?xsd=xsd0" namespace="Paasteel.com" />
+      <xsd:import schemaLocation="http://localhost:1578/Service/UserService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1578/Service/UserService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Store.DataContract" />
+      <xsd:import schemaLocation="http://localhost:1578/Service/UserService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Store.Common.Enum" />
+      <xsd:import schemaLocation="http://localhost:1578/Service/UserService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUserService_GetAppCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppCategories" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAppCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetApps_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApps" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetApps_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetRandomApps_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRandomApps" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetRandomApps_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRandomAppsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAppDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppDetail" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAppDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAppsLatestVersionInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppsLatestVersionInfo" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAppsLatestVersionInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppsLatestVersionInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAppScreenshot_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppScreenshot" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAppScreenshot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppScreenshotResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_RegisterNaturalPerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterNaturalPerson" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_RegisterNaturalPerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterNaturalPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_SignIn_InputMessage">
+    <wsdl:part name="parameters" element="tns:SignIn" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_SignIn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SignInResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_SignOut_InputMessage">
+    <wsdl:part name="parameters" element="tns:SignOut" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_SignOut_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SignOutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_IsEmailAvailableForRegistration_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsEmailAvailableForRegistration" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_IsEmailAvailableForRegistration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsEmailAvailableForRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_TryActivateAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:TryActivateAccount" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_TryActivateAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TryActivateAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ResendActivationCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResendActivationCode" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ResendActivationCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResendActivationCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_RegisterDevice_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterDevice" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_RegisterDevice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterDeviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetServerDescriptor_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerDescriptor" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetServerDescriptor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerDescriptorResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IUserService">
+    <wsdl:operation name="GetAppCategories">
+      <wsdl:input wsaw:Action="Paasteel.com/IUserService/GetAppCategories" message="tns:IUserService_GetAppCategories_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.com/IUserService/GetAppCategoriesResponse" message="tns:IUserService_GetAppCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApps">
+      <wsdl:input wsaw:Action="Paasteel.com/IUserService/GetApps" message="tns:IUserService_GetApps_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.com/IUserService/GetAppsResponse" message="tns:IUserService_GetApps_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRandomApps">
+      <wsdl:input wsaw:Action="Paasteel.com/IUserService/GetRandomApps" message="tns:IUserService_GetRandomApps_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.com/IUserService/GetRandomAppsResponse" message="tns:IUserService_GetRandomApps_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppDetail">
+      <wsdl:input wsaw:Action="Paasteel.com/IUserService/GetAppDetail" message="tns:IUserService_GetAppDetail_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.com/IUserService/GetAppDetailResponse" message="tns:IUserService_GetAppDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppsLatestVersionInfo">
+      <wsdl:input wsaw:Action="Paasteel.com/IUserService/GetAppsLatestVersionInfo" message="tns:IUserService_GetAppsLatestVersionInfo_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.com/IUserService/GetAppsLatestVersionInfoResponse" message="tns:IUserService_GetAppsLatestVersionInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppScreenshot">
+      <wsdl:input wsaw:Action="Paasteel.com/IUserService/GetAppScreenshot" message="tns:IUserService_GetAppScreenshot_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.com/IUserService/GetAppScreenshotResponse" message="tns:IUserService_GetAppScreenshot_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterNaturalPerson">
+      <wsdl:input wsaw:Action="Paasteel.com/IUserService/RegisterNaturalPerson" message="tns:IUserService_RegisterNaturalPerson_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.com/IUserService/RegisterNaturalPersonResponse" message="tns:IUserService_RegisterNaturalPerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SignIn">
+      <wsdl:input wsaw:Action="Paasteel.com/IUserService/SignIn" message="tns:IUserService_SignIn_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.com/IUserService/SignInResponse" message="tns:IUserService_SignIn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SignOut">
+      <wsdl:input wsaw:Action="Paasteel.com/IUserService/SignOut" message="tns:IUserService_SignOut_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.com/IUserService/SignOutResponse" message="tns:IUserService_SignOut_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsEmailAvailableForRegistration">
+      <wsdl:input wsaw:Action="Paasteel.com/IUserService/IsEmailAvailableForRegistration" message="tns:IUserService_IsEmailAvailableForRegistration_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.com/IUserService/IsEmailAvailableForRegistrationResponse" message="tns:IUserService_IsEmailAvailableForRegistration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TryActivateAccount">
+      <wsdl:input wsaw:Action="Paasteel.com/IUserService/TryActivateAccount" message="tns:IUserService_TryActivateAccount_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.com/IUserService/TryActivateAccountResponse" message="tns:IUserService_TryActivateAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResendActivationCode">
+      <wsdl:input wsaw:Action="Paasteel.com/IUserService/ResendActivationCode" message="tns:IUserService_ResendActivationCode_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.com/IUserService/ResendActivationCodeResponse" message="tns:IUserService_ResendActivationCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDevice">
+      <wsdl:input wsaw:Action="Paasteel.com/IUserService/RegisterDevice" message="tns:IUserService_RegisterDevice_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.com/IUserService/RegisterDeviceResponse" message="tns:IUserService_RegisterDevice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerDescriptor">
+      <wsdl:input wsaw:Action="Paasteel.com/IUserService/GetServerDescriptor" message="tns:IUserService_GetServerDescriptor_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.com/IUserService/GetServerDescriptorResponse" message="tns:IUserService_GetServerDescriptor_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,132 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WindowsStore.Client.User.UI.View"
+    xmlns:vm="using:WindowsStore.Client.User.UI.ViewModel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:UserControls="using:WindowsStore.Client.User.UI.View.UserControls"
+    x:Class="WindowsStore.Client.User.UI.View.MainPage"
+    mc:Ignorable="d" FlowDirection="RightToLeft" Loaded="Page_Loaded">
+    <Page.DataContext>
+        <vm:MainPageViewModel/>
+    </Page.DataContext>
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <ContinuumNavigationTransitionInfo/>
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
+    <Page.Resources>
+        <Style TargetType="AppBarButton" BasedOn="{StaticResource PrimaryAppBarButtonStyle}"/>
+        <Style TargetType="ProgressRing" BasedOn="{StaticResource ProgressRingStyleBase}"/>
+
+        <Style TargetType="Button" x:Key="SideMenuButtonStyle" BasedOn="{StaticResource ButtonStyleBase}">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="Padding" Value="18,10,5,10" />
+            <Setter Property="Foreground" Value="{StaticResource PaasteelNormalTextColor}" />
+        </Style>
+
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualStateGroup.Transitions>
+                    <VisualTransition x:Name="visualTransition" GeneratedDuration="0:0:1"/>
+                </VisualStateGroup.Transitions>
+                <VisualState x:Name="DefaultVisualState"/>
+                <VisualState x:Name="MaximizeSubFrameVisualState">
+                    <VisualState.Setters>
+                        <Setter Target="hamburgerButton.(UIElement.Visibility)" Value="Collapsed"/>
+                        <Setter Target="grid.(UIElement.Visibility)" Value="Visible"/>
+                        <Setter Target="subPageFrame.(Grid.RowSpan)" Value="2"/>
+                        <Setter Target="subPageFrame.(Grid.Row)" Value="0"/>
+                        <Setter Target="subPageFrame.(Canvas.ZIndex)" Value="0"/>
+                        <Setter Target="subPageFrame.(Control.Background)">
+                            <Setter.Value>
+                                <SolidColorBrush Color="White"/>
+                            </Setter.Value>
+                        </Setter>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.Children>
+            <UserControls:ModalMessage x:Name="modalMessage" Canvas.ZIndex="1" Visibility="Collapsed"/>
+            <AppBarButton x:Name="hamburgerButton" Width="50" HorizontalAlignment="Left" Height="50" Click="hamburgerButton_Click"  >
+                <AppBarButton.Icon>
+                    <FontIcon Glyph="&#xE700;" />
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <SplitView x:Name="splitView" OpenPaneLength="200">
+                <SplitView.Pane>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80*"/>
+                            <RowDefinition Height="453*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.Resources>
+                            <Style TargetType="Button" BasedOn="{StaticResource SideMenuButtonStyle}"></Style>
+                        </Grid.Resources>
+                        <Grid.Children>
+                            <StackPanel Grid.Row="1" Grid.RowSpan="2">
+                                <Button Content="خانه" Click="goToHomePageButton_Click" />
+                                <Button Content="برنامه‌های کاربردی" Click="goToApplicationsPageButton_Click"  />
+                                <Button Content="بازی‌ها" Click="goToGamesPageButton_Click" />
+                                <Button Content="دانلودها" Click="goToDownloadsPageButton_Click" />
+                                <Button Content="تنظیمات" Click="goToSettingsPageButton_Click"  />
+                                <Button Content="درباره پاستیل" Click="goToAboutPaasteelPageButton_Click"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Grid.RowSpan="2" VerticalAlignment="Bottom">
+                                <Button x:Name="signInButton" Content="ورود"  Click="goToLoginPageButton_Click" Margin="0,0,0,20" FontSize="13.333" Visibility="Collapsed"  />
+                            </StackPanel>
+
+                        </Grid.Children>
+                    </Grid>
+                </SplitView.Pane>
+                <SplitView.Content>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.Children>
+                            <Grid x:Name="grid" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="55"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.Children>
+                                    <TextBlock x:Name="pageTitleTextBlock" Grid.Column="1" TextWrapping="Wrap" Text="{Binding PageTitle}" VerticalAlignment="Center" Margin="0,0,0,3" Style="{StaticResource H1TextBlockStyle}"/>
+                                    <AppBarButton x:Name="goToDownloadsPageButton" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Click="goToDownloadsPageButton_Click" Icon="Download"/>
+                                    <TextBlock x:Name="currentDownloadsCountTextBlock" TextWrapping="Wrap" Text="{Binding CurrentDownloadsCount, Mode=OneWay}"   Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,0,0,0" Style="{StaticResource NormalTextBlockStyle}" />
+
+                                </Grid.Children>
+
+                            </Grid>
+                            <Frame x:Name="subPageFrame" Grid.Row="1" x:FieldModifier="public" Navigated="subPageFrame_Navigated" Navigating="subPageFrame_Navigating" />
+                            <ProgressRing x:Name="progressRing" VerticalAlignment="Top" Grid.Row="1" IsActive="True" Margin="155,264,155,0" HorizontalAlignment="Stretch" />
+                        </Grid.Children>
+                    </Grid>
+                </SplitView.Content>
+            </SplitView>
+        </Grid.Children>
+    </Grid>
+</Page>

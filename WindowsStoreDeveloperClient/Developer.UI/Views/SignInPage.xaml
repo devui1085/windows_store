@@ -1,0 +1,93 @@
+﻿<views:NavigationAwarePage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:WindowsStore.Client.Developer.Logic.ViewModels"
+    xmlns:mvvm="using:Prism.Windows.Mvvm"
+    xmlns:views="using:WindowsStore.Client.Developer.UI.Views"
+    xmlns:triggers="using:WindowsStore.Client.Developer.UI.Triggers"
+    x:Class="WindowsStore.Client.Developer.UI.Views.SignInPage"
+    d:DataContext="{d:DesignInstance viewModels:SignInPageViewModel,IsDesignTimeCreatable=True}"
+    mvvm:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d" FlowDirection="RightToLeft" Loaded="Page_Loaded" HorizontalAlignment="Center" VerticalAlignment="Stretch">
+    <Page.Resources>
+        <Style x:Key="HellowWordStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#FFFF80A0"/>
+            <Setter Property="FontSize" Value="22"/>
+        </Style>
+        <Style x:Key="SignInButtonStyle" TargetType="Button" BasedOn="{StaticResource ButtonBaseStyle}">
+      
+            <Setter Property="Background" Value="#FFCC295E" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+        
+    </Page.Resources>
+
+    <RelativePanel  HorizontalAlignment="Stretch"  VerticalAlignment="Center">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="LandscapeLayout">
+                    <VisualState.StateTriggers>
+                        <!--<AdaptiveTrigger MinWindowWidth="720" />-->
+                        <triggers:LayoutTrigger LayoutState="Landscape" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SpLogin.(RelativePanel.RightOf)" Value="SpWelcome"/>
+                        <Setter Target="SpWelcome.(RelativePanel.AlignVerticalCenterWithPanel)" Value="true"/>
+                        <Setter Target="SpWelcome.(Margin)" Value="5,0,40,0" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="PortraitLayout">
+                    <VisualState.Setters>
+                        <Setter Target="SpLogin.(RelativePanel.Below)" Value="SpWelcome"/>
+                   
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <triggers:LayoutTrigger LayoutState="Portrait" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="MinimalLayout">
+                    <VisualState.Setters>
+                        <Setter Target="SpLogin.(RelativePanel.Below)" Value="SpWelcome"/>
+
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <triggers:LayoutTrigger LayoutState="Minimal" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <StackPanel x:Name="SpLogin" Style="{StaticResource StackPanelStyle}">
+            <TextBlock>
+				<Run Text="در حال حاضر حساب کاربری دارید؟"/>
+            </TextBlock>
+            <TextBox x:Name="TxtEmailAddress" Text="{Binding UserName, Mode=TwoWay}" Style="{StaticResource SystemTextBoxStyle}"    PlaceholderText="پست الکترونیک" ToolTipService.ToolTip="پست الکترونیک"  >
+             
+            </TextBox>
+            
+            <PasswordBox  x:Name="TxtPassword" Password="{Binding Password, Mode=TwoWay}"   PlaceholderText="کلمه عبور" ToolTipService.ToolTip="کلمه عبور" KeyDown="TxtPassword_KeyDown"/>
+            <HyperlinkButton x:Name="ForgotPasswordHyperLinkButton" Content="رمز عبور را فراموش کرده اید؟" Margin="0,0,0,8" Click="ForgotPasswordHyperLinkButton_Click"/>
+            <Button x:Name="SignInButton" Content="ورود"  Style="{StaticResource DarkButtonStyle}" Command="{Binding SignInCommand}" />
+            <TextBlock Margin="0">
+				<Run Text="در پاستیل تازه وارد هستید؟"/>
+           
+            </TextBlock>
+            <TextBlock>
+				<Run Text="همین الان حساب کاربری خود را ایجاد کنید"/>
+            </TextBlock>
+            <Button Content="ایجاد حساب کاربری" Margin="0 20"  Command="{Binding SignUpNavigationCommand}"  Style="{StaticResource LightButtonStyle}" >
+
+            </Button>
+        </StackPanel>
+        <StackPanel x:Name="SpWelcome" Style="{StaticResource StackPanelStyle}" >
+            <TextBlock Style="{StaticResource HellowWordStyle}" >
+				<Run Text="سلام."/>
+            </TextBlock>
+            <TextBlock TextWrapping="WrapWholeWords"  HorizontalAlignment="Stretch">
+            	<Run Text="به پنل توسعه دهندگان فروشگاه ویندوز پاستیل خوش آمدید."/>
+            </TextBlock>
+        </StackPanel>
+    </RelativePanel>
+</views:NavigationAwarePage>

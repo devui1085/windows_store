@@ -1,0 +1,88 @@
+﻿<UserControl
+    x:Class="WindowsStore.Client.Developer.UI.Views.NaturalPersonUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WindowsStore.Client.Developer.UI.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:behaviors="using:WindowsStore.Client.Developer.UI.Behaviors"
+    xmlns:triggers="using:WindowsStore.Client.Developer.UI.Triggers"
+    mc:Ignorable="d"  FlowDirection="RightToLeft">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <!-- Visual States -->
+        <VisualStateManager.VisualStateGroups>
+
+            <!--  Visual states reflect the application's view state  -->
+            <VisualStateGroup x:Name="ApplicationViewStates">
+                <VisualState x:Name="DefaultLayout">
+                    <VisualState.StateTriggers>
+                        <triggers:LayoutTrigger LayoutState="Landscape" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="LastNamePanel.(RelativePanel.RightOf)" Value="FirstNamePanel" />
+                        <Setter Target="LastNamePanel.Margin" Value="15 0 0 0" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="PortraitLayout">
+                    <VisualState.StateTriggers>
+                        <triggers:LayoutTrigger LayoutState="Portrait" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="LastNamePanel.(RelativePanel.Below)" Value="FirstNamePanel" />
+                       
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="MinimalLayout">
+                    <VisualState.StateTriggers>
+                        <triggers:LayoutTrigger LayoutState="Minimal" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="LastNamePanel.(RelativePanel.Below)" Value="FirstNamePanel" />
+                        <Setter Target="EmailPanel.(RelativePanel.Below)" Value="LastNamePanel" />
+                        <Setter Target="PasswordPanel.(RelativePanel.Below)" Value="EmailPanel" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <!-- Body/Content Grid -->
+        <RelativePanel HorizontalAlignment="Stretch" >
+
+            <!--  First Name  -->
+            <StackPanel x:Name="FirstNamePanel"  Style="{StaticResource FormFieldStackPanelStyle}" >
+                <TextBlock>نام*</TextBlock>
+                <TextBox x:Uid="FirstName"
+                     x:Name="FirstName"
+                     Text="{Binding NaturalPerson.FirstName, Mode=TwoWay}">
+                    <interactivity:Interaction.Behaviors>
+                        <behaviors:HighlightFormFieldOnErrors PropertyErrors="{Binding NaturalPerson.Errors[FirstName]}" />
+                    </interactivity:Interaction.Behaviors>
+                </TextBox>
+                <TextBlock x:Name="ErrorsFirstName"
+                       Style="{StaticResource ErrorMessageStyle}"
+                       Text="{Binding NaturalPerson.Errors[FirstName],
+                                      Converter={StaticResource FirstErrorConverter}}"
+                       TextWrapping="Wrap" />
+            </StackPanel>
+
+            <!--  Last Name  -->
+            <StackPanel x:Name="LastNamePanel" Style="{StaticResource FormFieldStackPanelStyle}" >
+                <TextBlock>نام خانوادگی*</TextBlock>
+                <TextBox x:Uid="LastNamePanel"
+                     x:Name="LastName"
+                     Text="{Binding NaturalPerson.LastName,
+                                    Mode=TwoWay}">
+                    <interactivity:Interaction.Behaviors>
+                        <behaviors:HighlightFormFieldOnErrors PropertyErrors="{Binding NaturalPerson.Errors[LastName]}" />
+                    </interactivity:Interaction.Behaviors>
+                </TextBox>
+                <TextBlock x:Name="ErrorsLastName"
+                       Style="{StaticResource ErrorMessageStyle}"
+                       Text="{Binding NaturalPerson.Errors[LastName],
+                                      Converter={StaticResource FirstErrorConverter}}"
+                       TextWrapping="Wrap" />
+            </StackPanel>
+        </RelativePanel>
+    </Grid>
+</UserControl>

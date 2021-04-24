@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="WindowsStore.Client.Developer.UI.Views.AppPlatformSpecificationPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WindowsStore.Client.Developer.UI.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:WindowsStore.Client.Developer.Logic.ViewModels"
+    xmlns:mvvm="using:Prism.Windows.Mvvm"
+    d:DataContext="{d:DesignInstance viewModels:AppPlatformSpecificationPageViewModel,IsDesignTimeCreatable=True}"
+    mvvm:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d" FlowDirection="RightToLeft"  HorizontalAlignment="Center" VerticalAlignment="Center">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Margin="20">
+            <TextBlock Style="{StaticResource ResourceKey=LableColor}">
+                <Run>مشخصات سخت افزار و پلت فرم</Run>
+                <LineBreak />
+            </TextBlock>
+            <TextBlock Style="{StaticResource ResourceKey=LableColor}"> <Run Text="معماری پردازنده" /></TextBlock>
+            <VariableSizedWrapGrid MaximumRowsOrColumns="3" Orientation="Horizontal" Margin="0 5 0 20">
+                <CheckBox x:Name="X86"  Content="x86" Click="CpuArchitectureCheckbox_Click"></CheckBox>
+                <CheckBox x:Name="X64" Content="x64" Click="CpuArchitectureCheckbox_Click"></CheckBox>
+                <CheckBox x:Name="Arm" Content="ARM" Click="CpuArchitectureCheckbox_Click"></CheckBox>
+            </VariableSizedWrapGrid>
+            <TextBlock Style="{StaticResource ResourceKey=LableColor}"> <Run Text="پلت فرم" /></TextBlock>
+            <VariableSizedWrapGrid x:Name="PlatformCheckboxeList" MaximumRowsOrColumns="3" Orientation="Horizontal" Margin="0 5 0 20">
+                <CheckBox x:Name="Windows10Universal" Content="یونیورسال" Checked="Windows10Universal_Checked" Unchecked="Windows10Universal_Unchecked" Click="PlatformCategoryCheckbox_Click" ></CheckBox>
+                <CheckBox x:Name="Windows10Desktop" Content="دسکتاپ" Click="PlatformCategoryCheckbox_Click" ></CheckBox>
+                <CheckBox x:Name="Windows10Mobile" Content="موبایل"  Click="PlatformCategoryCheckbox_Click"></CheckBox>
+                <CheckBox x:Name="Windows10XBox" Content="ایکس باکس"  Click="PlatformCategoryCheckbox_Click"></CheckBox>
+                <CheckBox x:Name="Windows10Iot" Content="آی او تی"  Click="PlatformCategoryCheckbox_Click"></CheckBox>
+                <CheckBox x:Name="Windows10HoloLens" Content="هالو لنز"  Click="PlatformCategoryCheckbox_Click"></CheckBox>
+            </VariableSizedWrapGrid>
+            <Button Margin="0 80 0 0" Style="{StaticResource DarkButtonStyle}"
+                    Command="{Binding SavePalatformSpecificationCommand}"
+                    Content="ذخیره" />
+        </StackPanel>
+    </Grid>
+</Page>

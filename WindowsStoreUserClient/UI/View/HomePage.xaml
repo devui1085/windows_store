@@ -1,0 +1,160 @@
+﻿<Page
+    x:Class="WindowsStore.Client.User.UI.View.HomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WindowsStore.Client.User.UI.View"
+    xmlns:vm="using:WindowsStore.Client.User.UI.ViewModel"
+    xmlns:uc="using:WindowsStore.Client.User.UI.View.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="using:WindowsStore.Client.User.UI.Infrastructure.ValueConverters"
+    mc:Ignorable="d" FlowDirection="RightToLeft" Loaded="Page_Loaded" SizeChanged="Page_SizeChanged">
+    <Page.DataContext>
+        <vm:HomePageViewModel/>
+    </Page.DataContext>
+    <Page.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+
+        <DataTemplate x:Key="FlipViewItemTemplate">
+            <Grid Background="White" >
+                <Image Source="{Binding BackgroundImage}"/>
+                <TextBlock Text="{Binding Name}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,5" Style="{StaticResource NormalTextBlockStyle}"/>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="HorizontalListViewItemTemplate">
+            <StackPanel Width="80" Padding="2">
+                <Border BorderBrush="{StaticResource ImageBorderColor}" BorderThickness="1">
+                    <Image Source="{Binding Icon128x128}" Stretch="Fill" />
+                </Border>
+                <TextBlock Text="{Binding Name}" Style="{StaticResource TinyTextBlockStyle}" Margin="0,5,0,0" />
+                <TextBlock Text="{Binding PriceString}" Style="{StaticResource TinyTextBlockStyle}" />
+            </StackPanel>
+        </DataTemplate>
+
+        <Style TargetType="StackPanel" x:Key="AppGroupStyle">
+            <Setter Property="Margin" Value="0,5,0,10" />
+            <!--<Setter Property="Transitions">
+                <Setter.Value>
+                    <TransitionCollection>
+                        -->
+            <!--<ContentThemeTransition VerticalOffset="50" />-->
+            <!--
+                    </TransitionCollection>
+                </Setter.Value>
+            </Setter>-->
+        </Style>
+
+        <Style TargetType="Grid" x:Key="AppGroupHeaderGridStyle">
+            <Setter Property="Margin" Value="10,0,10,10" />
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="AppGroupHeaderTextBlockStyle" BasedOn="{StaticResource SmallTextBlockStyle}">
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
+        <Style TargetType="HyperlinkButton" x:Key="ShowAllHyperlinkButtonStyle" BasedOn="{StaticResource HyperlinkButtonStyleBase}">
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="Foreground" Value="{StaticResource PaasteelRedColor}" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+
+        <Style TargetType="Grid" x:Key="GroupDividerGridStyle">
+            <Setter Property="Margin" Value="0,15" />
+            <Setter Property="Background" Value="#FFF7F7F7" />
+        </Style>
+
+        <Style TargetType="ListView" BasedOn="{StaticResource HorizontalListViewStyleBase}">
+            <Setter Property="Margin" Value="5,0,10,0" />
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="GroupDividerTextBlockStyle" BasedOn="{StaticResource H1TextBlockStyle}">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Foreground" Value="{StaticResource PaasteelDarkGrayColor}" />
+        </Style>
+
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" d:DataContext="{Binding Source={StaticResource SampleDataSource}}">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel>
+                <FlipView x:Name="flipView" ItemTemplate="{StaticResource FlipViewItemTemplate}" Height="180" ItemsSource="{Binding FeaturedApps}" Background="White" Margin="0,0,0,15"/>
+
+                <StackPanel Style="{StaticResource AppGroupStyle}" Visibility="{Binding ShowRandomAppsSection, Converter={StaticResource BooleanToVisibilityConverter}}" >
+                    <Grid Style="{StaticResource AppGroupHeaderGridStyle}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="انتخاب شده‌های تصادفی" Style="{StaticResource AppGroupHeaderTextBlockStyle}"/>
+                    </Grid>
+                    <ListView x:Name="randomAppsListView"
+                        ItemsPanel="{StaticResource HorizontalListViewItemsPanelTemplate}"
+                        ItemTemplate="{StaticResource HorizontalListViewItemTemplate}"
+                        ItemContainerStyle="{StaticResource HorizontalListViewItemContainerStyle}"
+                        ItemsSource="{Binding RandomApps}"
+                        IsItemClickEnabled="True"
+                        ItemClick="randomAppsListView_ItemClick">
+                    </ListView>
+                </StackPanel>
+
+                <StackPanel Style="{StaticResource AppGroupStyle}"  Visibility="{Binding ShowTopApplicationsSection, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <Grid Style="{StaticResource GroupDividerGridStyle}" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="ms-appx:///Assets/icons/apps-128x128.png" Stretch="None" HorizontalAlignment="Left"></Image>
+                        <TextBlock Grid.Column="1" Text="برنامه‌های کاربردی"  Style="{StaticResource GroupDividerTextBlockStyle}"/>
+                    </Grid>
+
+                    <Grid Style="{StaticResource AppGroupHeaderGridStyle}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="برنامه‌های پرطرفدار" Style="{StaticResource AppGroupHeaderTextBlockStyle}"/>
+                        <HyperlinkButton x:Name="showAllTopApplicationsHyperLink" Grid.Column="1" Content="مشاهده همه" Style="{StaticResource ShowAllHyperlinkButtonStyle}" Click="showAllTopApplicationsHyperLink_Click" />
+                    </Grid>
+                    <ListView x:Name="topApplicationsListView"
+                        ItemsPanel="{StaticResource HorizontalListViewItemsPanelTemplate}"
+                        ItemTemplate="{StaticResource HorizontalListViewItemTemplate}"
+                        ItemContainerStyle="{StaticResource HorizontalListViewItemContainerStyle}"
+                        ItemsSource="{Binding TopApplications}"
+                        IsItemClickEnabled="True"
+                        ItemClick="topApplicationsListView_ItemClick">
+                    </ListView>
+                </StackPanel>
+
+                <StackPanel Style="{StaticResource AppGroupStyle}"  Visibility="{Binding ShowTopGamesSection, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <Grid Style="{StaticResource GroupDividerGridStyle}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="ms-appx:///Assets/puzzle-128x128.png" Stretch="None" HorizontalAlignment="Left"></Image>
+                        <TextBlock Grid.Column="1" Text="بازی‌ها"  Style="{StaticResource GroupDividerTextBlockStyle}"/>
+                    </Grid>
+
+                    <Grid Style="{StaticResource AppGroupHeaderGridStyle}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="بازی‌های پرطرفدار" Style="{StaticResource AppGroupHeaderTextBlockStyle}"/>
+                        <HyperlinkButton x:Name="showAllTopGamesHyperLink" Grid.Column="1" Content="مشاهده همه" Style="{StaticResource ShowAllHyperlinkButtonStyle}" Click="showAllTopGamesHyperLink_Click"/>
+                    </Grid>
+                    <ListView x:Name="topGamesListView"
+                        ItemsPanel="{StaticResource HorizontalListViewItemsPanelTemplate}"
+                        ItemTemplate="{StaticResource HorizontalListViewItemTemplate}"
+                        ItemContainerStyle="{StaticResource HorizontalListViewItemContainerStyle}"
+                        ItemsSource="{Binding TopGames}"
+                        IsItemClickEnabled="True"
+                        ItemClick="topGamesListView_ItemClick">
+                    </ListView>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+        <uc:ModalMessage x:Name="modalMessage" Visibility="Collapsed"/>
+    </Grid>
+</Page>

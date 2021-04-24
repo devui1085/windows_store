@@ -1,0 +1,173 @@
+﻿<Page
+    x:Class="WindowsStore.Client.Developer.UI.Views.AppDetailPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WindowsStore.Client.Developer.UI.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+     xmlns:triggers="using:WindowsStore.Client.Developer.UI.Triggers"
+     xmlns:viewModels="using:WindowsStore.Client.Developer.Logic.ViewModels"
+     xmlns:mvvm="using:Prism.Windows.Mvvm"
+     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+     d:DataContext="{d:DesignInstance viewModels:AppDetailPageViewModel,IsDesignTimeCreatable=True}"
+    mvvm:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d" FlowDirection="RightToLeft"  VerticalAlignment="Top"  >
+    <Page.Resources>
+        <Style x:Key="RelativePanelStyle" TargetType="RelativePanel" >
+            <Setter Property="MinWidth" Value="350"></Setter>
+            <Setter Property="Margin" Value="0 10 20 10" />
+            <Setter Property="Background" Value="White" />
+        </Style>
+        <Style x:Key="SymbolIconStyle" TargetType="SymbolIcon" >
+            <Setter Property="Margin" Value="5 0 5 5" />
+        </Style>
+
+
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <!--  Visual states reflect the application's view state  -->
+            <VisualStateGroup x:Name="ApplicationViewStates">
+                <VisualState x:Name="DefaultLayout">
+                    <VisualState.StateTriggers>
+                        <triggers:LayoutTrigger LayoutState="Landscape" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="PortraitLayout">
+                    <VisualState.StateTriggers>
+                        <triggers:LayoutTrigger LayoutState="Portrait" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MainPanel.HorizontalAlignment" Value="Center" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="MinimalLayout">
+                    <VisualState.StateTriggers>
+                        <triggers:LayoutTrigger LayoutState="Minimal" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MainPanel.HorizontalAlignment" Value="Center" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <ScrollViewer Grid.Row="0"  VerticalScrollMode="Enabled" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"  VerticalScrollBarVisibility="Auto" >
+            <Grid x:Name="AppDetailGrid"  >
+                <GridView x:Name="AppsGridView" >
+                    <GridView.Items>
+                        <ItemsControl>
+                            <RelativePanel x:Name="AppSpecificationSection" Style="{StaticResource ResourceKey=RelativePanelStyle}"  >
+                                <interactivity:Interaction.Behaviors>
+                                    <core:EventTriggerBehavior EventName="Tapped">
+                                        <core:InvokeCommandAction Command="{Binding GoToAppSpecificationPageCommand}"/>
+                                    </core:EventTriggerBehavior>
+                                </interactivity:Interaction.Behaviors>
+                                <Viewbox x:Name="AppSpecificationCompletenessStatusSymbolIcon" MaxHeight="100" MaxWidth="100"   >
+                                    <SymbolIcon Style="{StaticResource SymbolIconStyle}"  
+                                        Symbol="{Binding AppSpecificationIsComplete, Converter={StaticResource BooleanToSymbolIconConverter}}"
+                                        Foreground="{Binding AppSpecificationPageEnabled, Converter={StaticResource BooleanToColorConverter},ConverterParameter=#49A8E2:LightGray}"
+                                        />
+                                </Viewbox>
+                                <TextBlock x:Name="AppSpecificationSectionTitle" Foreground="{Binding AppSpecificationPageEnabled, Converter={StaticResource BooleanToColorConverter},ConverterParameter=#FFCC295E:Gray}"  RelativePanel.RightOf="AppSpecificationCompletenessStatusSymbolIcon" Text="مشخصات" />
+                                <TextBlock x:Name="AppSpecificationDescription" RelativePanel.Below="AppSpecificationSectionTitle" RelativePanel.RightOf="AppSpecificationCompletenessStatusSymbolIcon" Text="( نام برنامه، نوع برنامه ، دسته ، قیمت )" />
+                                <TextBlock x:Name="AppSpecificationCompletenessStatus" RelativePanel.Below="AppSpecificationDescription" RelativePanel.RightOf="AppSpecificationCompletenessStatusSymbolIcon" 
+                                   Foreground="{Binding AppSpecificationIsComplete, Converter={StaticResource BooleanToColorConverter},ConverterParameter=LightGray:Gray}"  
+                                   Text="{Binding  AppSpecificationIsComplete, Converter={StaticResource BooleanToCompletenessConverter}}"></TextBlock>
+                            </RelativePanel>
+                           
+                        </ItemsControl>
+                        <ItemsControl>
+                            <RelativePanel x:Name="IconSection" Style="{StaticResource ResourceKey=RelativePanelStyle}">
+                                <interactivity:Interaction.Behaviors>
+                                    <core:EventTriggerBehavior EventName="Tapped">
+                                        <core:InvokeCommandAction Command="{Binding GoToAppIconPageCommand}"/>
+                                    </core:EventTriggerBehavior>
+                                </interactivity:Interaction.Behaviors>
+                                <Viewbox x:Name="IconSectionCompletenessStatusSymbolIcon" MaxHeight="100" MaxWidth="100"   >
+                                    <SymbolIcon Style="{StaticResource SymbolIconStyle}"  
+                                        Symbol="{Binding AppIconIsComplete, Converter={StaticResource BooleanToSymbolIconConverter}}"
+                                        Foreground="{Binding AppIconPageEnabled, Converter={StaticResource BooleanToColorConverter},ConverterParameter=#49A8E2:LightGray}"
+                                        />
+                                </Viewbox>
+                                <TextBlock x:Name="IconTitleTextBlock" Foreground="{Binding AppIconPageEnabled, Converter={StaticResource BooleanToColorConverter},ConverterParameter=#FFCC295E:Gray}" RelativePanel.RightOf="IconSectionCompletenessStatusSymbolIcon" Text="آیکن" />
+                                <TextBlock x:Name="IconSectionDescription" RelativePanel.Below="IconTitleTextBlock" RelativePanel.RightOf="IconSectionCompletenessStatusSymbolIcon" Text="( آیکن 128X128 ، آیکن 256X256 )" />
+                                <TextBlock x:Name="IconSectionCompletenessStatusText" RelativePanel.Below="IconSectionDescription"  RelativePanel.RightOf="IconSectionCompletenessStatusSymbolIcon"
+                                   Foreground="{Binding AppIconIsComplete, Converter={StaticResource BooleanToColorConverter},ConverterParameter=LightGray:Gray}"  
+                                   Text="{Binding  AppIconIsComplete, Converter={StaticResource BooleanToCompletenessConverter}}"></TextBlock>
+                            </RelativePanel>
+                        </ItemsControl>
+                        <ItemsControl>
+                            <RelativePanel x:Name="ScreenshotSection" Style="{StaticResource ResourceKey=RelativePanelStyle}">
+                                <interactivity:Interaction.Behaviors>
+                                    <core:EventTriggerBehavior EventName="Tapped">
+                                        <core:InvokeCommandAction Command="{Binding GoToAppScreenshotsPageCommand}"/>
+                                    </core:EventTriggerBehavior>
+                                </interactivity:Interaction.Behaviors>
+                                <Viewbox x:Name="ScreenshotSectionCompletenessStatusSymbolIcon" MaxHeight="100" MaxWidth="100"   >
+                                    <SymbolIcon Style="{StaticResource SymbolIconStyle}"  
+                                        Symbol="{Binding AppScreenshotIsComplete, Converter={StaticResource BooleanToSymbolIconConverter}}"
+                                        Foreground="{Binding AppScreenshotsPageEnabled, Converter={StaticResource BooleanToColorConverter},ConverterParameter=#49A8E2:LightGray}"
+                                        />
+                                </Viewbox>
+                                <TextBlock x:Name="ScreenshotTitleTextBlock" Foreground="{Binding AppScreenshotsPageEnabled, Converter={StaticResource BooleanToColorConverter},ConverterParameter=#FFCC295E:Gray}" RelativePanel.RightOf="ScreenshotSectionCompletenessStatusSymbolIcon" Text="تصاویر" />
+                                <TextBlock x:Name="ScreenshotSectionDescription" RelativePanel.Below="ScreenshotTitleTextBlock" RelativePanel.RightOf="ScreenshotSectionCompletenessStatusSymbolIcon"  Text="( حداکثر شش اسکرین شات از برنامه )"></TextBlock>
+                                <TextBlock x:Name="ScreenshotSectionCompletenessStatusText" RelativePanel.Below="ScreenshotSectionDescription" RelativePanel.RightOf="ScreenshotSectionCompletenessStatusSymbolIcon" Foreground="{Binding AppScreenshotIsComplete, Converter={StaticResource BooleanToColorConverter},ConverterParameter=LightGray:Gray}" Text="{Binding  AppScreenshotIsComplete, Converter={StaticResource BooleanToCompletenessConverter}}" />
+                            </RelativePanel>
+                        </ItemsControl>
+                        <ItemsControl>
+                            <RelativePanel x:Name="PlatformSection" Style="{StaticResource ResourceKey=RelativePanelStyle}">
+                                <interactivity:Interaction.Behaviors>
+                                    <core:EventTriggerBehavior EventName="Tapped">
+                                        <core:InvokeCommandAction Command="{Binding GoToAppPlatformSpecificationPageCommand}"/>
+                                    </core:EventTriggerBehavior>
+                                </interactivity:Interaction.Behaviors>
+                                <Viewbox x:Name="PlatformCompletenessStatusSymbolIcon" MaxHeight="100" MaxWidth="100"   >
+                                    <SymbolIcon Style="{StaticResource SymbolIconStyle}"  
+                                        Symbol="{Binding AppPlatformSpecificationIsComplete, Converter={StaticResource BooleanToSymbolIconConverter}}"
+                                        Foreground="{Binding AppPlatformSpecificationPageEnabled, Converter={StaticResource BooleanToColorConverter},ConverterParameter=#49A8E2:LightGray}"
+                                        />
+                                </Viewbox>
+                                <TextBlock x:Name="PlatformTitleTextBlock" Foreground="{Binding AppPlatformSpecificationPageEnabled, Converter={StaticResource BooleanToColorConverter},ConverterParameter=#FFCC295E:Gray}" RelativePanel.RightOf="PlatformCompletenessStatusSymbolIcon"  Text="سخت افزار و دستگاه" />
+                                <TextBlock x:Name="PlatformSectionDescription"  RelativePanel.Below="PlatformTitleTextBlock" RelativePanel.RightOf="PlatformCompletenessStatusSymbolIcon" Text="( معماری پردازنده ، پلت فرم اجرا )"></TextBlock>
+                                <TextBlock x:Name="PlatformCompletenessStatusText" RelativePanel.Below="PlatformSectionDescription" RelativePanel.RightOf="PlatformCompletenessStatusSymbolIcon" 
+                                   Foreground="{Binding AppPlatformSpecificationIsComplete, Converter={StaticResource BooleanToColorConverter},ConverterParameter=LightGray:Gray}" 
+                                   Text="{Binding  AppPlatformSpecificationIsComplete, Converter={StaticResource BooleanToCompletenessConverter}}" />
+                            </RelativePanel>
+                        </ItemsControl>
+                        <ItemsControl>
+                            <RelativePanel x:Name="VersionSection" Style="{StaticResource ResourceKey=RelativePanelStyle}" >
+                                <interactivity:Interaction.Behaviors>
+                                    <core:EventTriggerBehavior EventName="Tapped">
+                                        <core:InvokeCommandAction Command="{Binding GoToAppVersionSpecificationPageCommand}"/>
+                                    </core:EventTriggerBehavior>
+                                </interactivity:Interaction.Behaviors>
+                                <Viewbox x:Name="VersionSectionCompletenessStatusStatusSymbolIcon" MaxHeight="100" MaxWidth="100"   >
+                                    <SymbolIcon Style="{StaticResource SymbolIconStyle}"   
+                                        Symbol="{Binding AppVersionSpecificationIsComplete, Converter={StaticResource BooleanToSymbolIconConverter}}"
+                                        Foreground="{Binding AppVersionSpecificationPageEnabled, Converter={StaticResource BooleanToColorConverter},ConverterParameter=#49A8E2:LightGray}"
+                                        />
+                                </Viewbox>
+                                <TextBlock x:Name="VersionTextBlock" Foreground="{Binding AppVersionSpecificationPageEnabled, Converter={StaticResource BooleanToColorConverter},ConverterParameter=#FFCC295E:Gray}" RelativePanel.RightOf="VersionSectionCompletenessStatusStatusSymbolIcon" Text="مشخصات نسخه" />
+                                <TextBlock x:Name="VersionSectionDescription" RelativePanel.Below="VersionTextBlock" RelativePanel.RightOf="VersionSectionCompletenessStatusStatusSymbolIcon"  Text="( پکیج ARM، پکیج X86, پکیج X64 )"></TextBlock>
+                                <TextBlock x:Name="VersionSectionCompletenessStatusText" RelativePanel.Below="VersionSectionDescription" RelativePanel.RightOf="VersionSectionCompletenessStatusStatusSymbolIcon"
+                                   Foreground="{Binding AppVersionSpecificationIsComplete, Converter={StaticResource BooleanToColorConverter},ConverterParameter=LightGray:Gray}" 
+                                   Text="{Binding  AppVersionSpecificationIsComplete, Converter={StaticResource BooleanToCompletenessConverter}}" />
+                            </RelativePanel>
+                        </ItemsControl>
+                    </GridView.Items>
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapGrid MaximumRowsOrColumns="4" Orientation="Horizontal"
+              VerticalChildrenAlignment="Top" HorizontalChildrenAlignment="Center" />
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+                </GridView>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>

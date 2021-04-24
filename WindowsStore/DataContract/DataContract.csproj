@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{16DB9E08-E8F4-47B7-9947-AD2ED57C91F7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Store.DataContract</RootNamespace>
+    <AssemblyName>Store.DataContract</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FeaturedAppDataContract.cs" />
+    <Compile Include="ScreenshotFilterDataContract.cs" />
+    <Compile Include="ScreenshotDataContract.cs" />
+    <Compile Include="AppDetailDataContract.cs" />
+    <Compile Include="UserClientDescriptorDataContract.cs" />
+    <Compile Include="ServerDescriptorDataContract.cs" />
+    <Compile Include="AppSpecificationDataContract.cs" />
+    <Compile Include="AppVersionDataContract.cs" />
+    <Compile Include="AuthenticationResultDataContract.cs" />
+    <Compile Include="DownloadRequest.cs" />
+    <Compile Include="AppFilterDataContract.cs" />
+    <Compile Include="FilterDataContractBase.cs" />
+    <Compile Include="LegalPersonDataContract.cs" />
+    <Compile Include="AppCategoryDataContract.cs" />
+    <Compile Include="NaturalPersonDataContract.cs" />
+    <Compile Include="PersonDataContract.cs" />
+    <Compile Include="AppPlatformSpecificationDataContract.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RemoteFileInfo.cs" />
+    <Compile Include="AppIconDataContract.cs" />
+    <Compile Include="SoapFaults\AuthorizationFault.cs" />
+    <Compile Include="SoapFaults\GeneralInternalFault.cs" />
+    <Compile Include="SoapFaults\AuthenticationFault.cs" />
+    <Compile Include="AppDataContract.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{70ff5d82-76b1-4785-848a-ceb8cfdcde39}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WindowsStore\DomainModel.csproj">
+      <Project>{5701D5FC-510A-4387-ACF4-06CE8DF42A82}</Project>
+      <Name>DomainModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

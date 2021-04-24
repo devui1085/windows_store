@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Store.DataContract" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Store.DataContract" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1578/Service/UserService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Store.Common.Enum" />
+  <xs:import schemaLocation="http://localhost:1578/Service/UserService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfAppCategoryDataContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AppCategoryDataContract" nillable="true" type="tns:AppCategoryDataContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAppCategoryDataContract" nillable="true" type="tns:ArrayOfAppCategoryDataContract" />
+  <xs:complexType name="AppCategoryDataContract">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Store.Common.Enum" minOccurs="0" name="AppType" type="q1:AppType" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AppCategoryDataContract" nillable="true" type="tns:AppCategoryDataContract" />
+  <xs:complexType name="AppFilterDataContract">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:FilterDataContractBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AppCategoryId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="AppGuid" nillable="true" type="ser:guid" />
+          <xs:element minOccurs="0" name="AppId" nillable="true" type="xs:int" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Store.Common.Enum" minOccurs="0" name="AppOrderMethod" nillable="true" type="q2:AppOrderMethod" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Store.Common.Enum" minOccurs="0" name="AppPricing" nillable="true" type="q3:AppPricing" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Store.Common.Enum" minOccurs="0" name="AppType" nillable="true" type="q4:AppType" />
+          <xs:element minOccurs="0" name="Include128X128Icon" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Include256X256Icon" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IncludeAppPrice" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AppFilterDataContract" nillable="true" type="tns:AppFilterDataContract" />
+  <xs:complexType name="FilterDataContractBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PageIndex" type="xs:int" />
+      <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FilterDataContractBase" nillable="true" type="tns:FilterDataContractBase" />
+  <xs:complexType name="ArrayOfAppDataContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AppDataContract" nillable="true" type="tns:AppDataContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAppDataContract" nillable="true" type="tns:ArrayOfAppDataContract" />
+  <xs:complexType name="AppDataContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppCategory" nillable="true" type="tns:AppCategoryDataContract" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeveloperId" type="xs:int" />
+      <xs:element minOccurs="0" name="DeveloperName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Guid" type="ser:guid" />
+      <xs:element minOccurs="0" name="Icon128X128" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Icon256X256" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="LatestVersion" nillable="true" type="tns:AppVersionDataContract" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Price" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AppDataContract" nillable="true" type="tns:AppDataContract" />
+  <xs:complexType name="AppVersionDataContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="AppId" type="xs:int" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Downloads" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="PublishDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Size" type="xs:long" />
+      <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AppVersionDataContract" nillable="true" type="tns:AppVersionDataContract" />
+  <xs:complexType name="ArrayOfAppVersionDataContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AppVersionDataContract" nillable="true" type="tns:AppVersionDataContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAppVersionDataContract" nillable="true" type="tns:ArrayOfAppVersionDataContract" />
+  <xs:complexType name="NaturalPersonDataContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Age" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NationalCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrimaryEmail" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Store.Common.Enum" minOccurs="0" name="Sexuality" nillable="true" type="q5:Sexuality" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NaturalPersonDataContract" nillable="true" type="tns:NaturalPersonDataContract" />
+  <xs:complexType name="AuthenticationResultDataContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Authenticated" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsNaturalPerson" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrimaryEmail" nillable="true" type="xs:string" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Store.Common.Enum" minOccurs="0" name="UserAccountStatus" type="q6:UserAccountStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuthenticationResultDataContract" nillable="true" type="tns:AuthenticationResultDataContract" />
+</xs:schema>

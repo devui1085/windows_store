@@ -1,0 +1,162 @@
+footer.main-color-2-bg {
+	background-color: rgb(43, 43, 43);
+}
+.un-separator .main-color-2-bg {
+	background-color: rgb(43, 43, 43);
+}
+.main-color-2-bg.back-to-top {
+	background-color: rgb(43, 43, 43);
+}
+body {
+	font-family: "yekan-joom",sans-serif;
+}
+#main-nav .navbar-nav > li > a .menu-description {
+	font-family: "yekan-joom",sans-serif;
+}
+body {
+	font-size: 13px;
+}
+h1 {
+	font-family: "yekan-joom", Times, serif;
+}
+.h1 {
+	font-family: "yekan-joom", Times, serif;
+}
+h2 {
+	font-family: "yekan-joom", Times, serif;
+}
+.h2 {
+	font-family: "yekan-joom", Times, serif;
+}
+.content-dropcap p:first-child::first-letter {
+	font-family: "yekan-joom", Times, serif;
+}
+.dropcap {
+	font-family: "yekan-joom", Times, serif;
+}
+.font-2 {
+	font-family: "yekan-joom", Times, serif;
+}
+.mobile-menu > li > a {
+	font-family: "yekan-joom", Times, serif;
+}
+.media-heading {
+	font-family: "yekan-joom", Times, serif;
+}
+.widget-title {
+	font-family: "yekan-joom", Times, serif;
+}
+.item-content .item-title {
+	font-family: "yekan-joom", Times, serif;
+}
+.post-slider-title {
+	font-family: "yekan-joom", Times, serif;
+}
+.overlay-top h4 {
+	font-family: "yekan-joom", Times, serif;
+}
+h4.wpb_toggle {
+	font-family: "yekan-joom", Times, serif;
+}
+.wpb_accordion .wpb_accordion_wrapper h3.wpb_accordion_header {
+	font-family: "yekan-joom", Times, serif;
+}
+.content-dropcap p:first-child::first-letter {
+	font-family: "yekan-joom", Times, serif;
+}
+.dropcap {
+	font-family: "yekan-joom", Times, serif;
+}
+#main-nav .navbar-nav > li > a {
+	font-family: "yekan-joom", Times, serif;
+}
+@media all and (min-width:992px)
+{
+.ia-post-grid-1 .grid-item {
+	width: 100%;
+}
+.ia-post-grid-1.has-featured-item :first-child.grid-item {
+	width: 200%;
+}
+}
+@media all and (min-width:992px)
+{
+.ia-post-grid-2 .grid-item {
+	width: 50%;
+}
+.ia-post-grid-2.has-featured-item :first-child.grid-item {
+	width: 100%;
+}
+}
+@media all and (min-width:992px)
+{
+.ia-post-grid-3 .grid-item {
+	width: 33.33%;
+}
+.ia-post-grid-3.has-featured-item :first-child.grid-item {
+	width: 66.66%;
+}
+}
+@media all and (min-width:992px)
+{
+.ia-post-grid-4 .grid-item {
+	width: 25%;
+}
+.ia-post-grid-4.has-featured-item :first-child.grid-item {
+	width: 50%;
+}
+}
+@media all and (min-width:992px)
+{
+.ia-post-grid-5 .grid-item {
+	width: 20%;
+}
+.ia-post-grid-5.has-featured-item :first-child.grid-item {
+	width: 40%;
+}
+}
+@media all and (min-width:992px)
+{
+.ia-post-grid-6 .grid-item {
+	width: 16.66%;
+}
+.ia-post-grid-6.has-featured-item :first-child.grid-item {
+	width: 33.33%;
+}
+}
+@media all and (min-width:992px)
+{
+.ia-post-grid-7 .grid-item {
+	width: 14.28%;
+}
+.ia-post-grid-7.has-featured-item :first-child.grid-item {
+	width: 28.57%;
+}
+}
+@media all and (min-width:992px)
+{
+.ia-post-grid-8 .grid-item {
+	width: 12.5%;
+}
+.ia-post-grid-8.has-featured-item :first-child.grid-item {
+	width: 25%;
+}
+}
+@media all and (min-width:992px)
+{
+.ia-post-grid-9 .grid-item {
+	width: 11.11%;
+}
+.ia-post-grid-9.has-featured-item :first-child.grid-item {
+	width: 22.22%;
+}
+}
+@media all and (min-width:992px)
+{
+.ia-post-grid-10 .grid-item {
+	width: 10%;
+}
+.ia-post-grid-10.has-featured-item :first-child.grid-item {
+	width: 20%;
+}
+}

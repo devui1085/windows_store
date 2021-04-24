@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fb8bbeb0-ebf6-4c6e-8fa8-bb1bac0cd97b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1578/Service/FileTransferService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="FileTransferService1.xsd" MetadataType="Schema" ID="bca3a883-2068-4357-adff-5a590a39c814" SourceId="1" SourceUrl="http://localhost:1578/Service/FileTransferService.svc?xsd=xsd2" />
+    <MetadataFile FileName="FileTransferService11.xsd" MetadataType="Schema" ID="ea42c36a-7b84-4f25-b8b9-177ba4cadaec" SourceId="1" SourceUrl="http://localhost:1578/Service/FileTransferService.svc?xsd=xsd3" />
+    <MetadataFile FileName="FileTransferService.xsd" MetadataType="Schema" ID="92990023-2813-4531-8d77-72a7f56e7ad3" SourceId="1" SourceUrl="http://localhost:1578/Service/FileTransferService.svc?xsd=xsd0" />
+    <MetadataFile FileName="FileTransferService.wsdl" MetadataType="Wsdl" ID="ce89b140-0fee-41aa-97b2-aa5948f29dc8" SourceId="1" SourceUrl="http://localhost:1578/Service/FileTransferService.svc?wsdl" />
+    <MetadataFile FileName="FileTransferService.disco" MetadataType="Disco" ID="9cd4520e-f121-4297-97db-771b9c9a0c56" SourceId="1" SourceUrl="http://localhost:1578/Service/FileTransferService.svc?disco" />
+    <MetadataFile FileName="FileTransferService12.xsd" MetadataType="Schema" ID="d36233b9-049c-4959-8845-64042d14caea" SourceId="1" SourceUrl="http://localhost:1578/Service/FileTransferService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

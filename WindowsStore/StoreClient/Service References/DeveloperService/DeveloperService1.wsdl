@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="Paasteel.com" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="Paasteel.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="Paasteel.com/Imports">
+      <xsd:import schemaLocation="http://localhost:1578/Service/DeveloperService.svc?xsd=xsd0" namespace="Paasteel.com" />
+      <xsd:import schemaLocation="http://localhost:1578/Service/DeveloperService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1578/Service/DeveloperService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Store.DataContract" />
+      <xsd:import schemaLocation="http://localhost:1578/Service/DeveloperService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Store.Common.Enum" />
+      <xsd:import schemaLocation="http://localhost:1578/Service/DeveloperService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Store.DataContract.SoapFaults" />
+      <xsd:import schemaLocation="http://localhost:1578/Service/DeveloperService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Store.Common.Infrastructure" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDeveloperService_GetAppCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppCategories" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_GetAppCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_RegisterApp_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterApp" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_RegisterApp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_RegisterNaturalPerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterNaturalPerson" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_RegisterNaturalPerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterNaturalPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_SignIn_InputMessage">
+    <wsdl:part name="parameters" element="tns:SignIn" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_SignIn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SignInResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_SignIn_GeneralInternalFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Store.DataContract.SoapFaults" name="detail" element="q1:GeneralInternalFault" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_IsEmailAvailableForRegistration_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsEmailAvailableForRegistration" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_IsEmailAvailableForRegistration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsEmailAvailableForRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_IsEmailAvailableForRegistration_GeneralInternalFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Store.DataContract.SoapFaults" name="detail" element="q2:GeneralInternalFault" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_TryActivateAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:TryActivateAccount" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_TryActivateAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TryActivateAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_ResendActivationCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResendActivationCode" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_ResendActivationCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResendActivationCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_GetDeveloperApps_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeveloperApps" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_GetDeveloperApps_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeveloperAppsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeveloperService_GetDeveloperApps_AuthenticationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Store.DataContract.SoapFaults" name="detail" element="q3:AuthenticationFault" />
+  </wsdl:message>
+  <wsdl:portType name="IDeveloperService">
+    <wsdl:operation name="GetAppCategories">
+      <wsdl:input wsaw:Action="Paasteel.com/IDeveloperService/GetAppCategories" message="tns:IDeveloperService_GetAppCategories_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.com/IDeveloperService/GetAppCategoriesResponse" message="tns:IDeveloperService_GetAppCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterApp">
+      <wsdl:input wsaw:Action="Paasteel.com/IDeveloperService/RegisterApp" message="tns:IDeveloperService_RegisterApp_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.com/IDeveloperService/RegisterAppResponse" message="tns:IDeveloperService_RegisterApp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterNaturalPerson">
+      <wsdl:input wsaw:Action="Paasteel.com/IDeveloperService/RegisterNaturalPerson" message="tns:IDeveloperService_RegisterNaturalPerson_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.com/IDeveloperService/RegisterNaturalPersonResponse" message="tns:IDeveloperService_RegisterNaturalPerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SignIn">
+      <wsdl:input wsaw:Action="Paasteel.com/IDeveloperService/SignIn" message="tns:IDeveloperService_SignIn_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.com/IDeveloperService/SignInResponse" message="tns:IDeveloperService_SignIn_OutputMessage" />
+      <wsdl:fault wsaw:Action="Paasteel.com/IDeveloperService/SignInGeneralInternalFaultFault" name="GeneralInternalFaultFault" message="tns:IDeveloperService_SignIn_GeneralInternalFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsEmailAvailableForRegistration">
+      <wsdl:input wsaw:Action="Paasteel.com/IDeveloperService/IsEmailAvailableForRegistration" message="tns:IDeveloperService_IsEmailAvailableForRegistration_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.com/IDeveloperService/IsEmailAvailableForRegistrationResponse" message="tns:IDeveloperService_IsEmailAvailableForRegistration_OutputMessage" />
+      <wsdl:fault wsaw:Action="Paasteel.com/IDeveloperService/IsEmailAvailableForRegistrationGeneralInternalFaultFault" name="GeneralInternalFaultFault" message="tns:IDeveloperService_IsEmailAvailableForRegistration_GeneralInternalFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TryActivateAccount">
+      <wsdl:input wsaw:Action="Paasteel.com/IDeveloperService/TryActivateAccount" message="tns:IDeveloperService_TryActivateAccount_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.com/IDeveloperService/TryActivateAccountResponse" message="tns:IDeveloperService_TryActivateAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResendActivationCode">
+      <wsdl:input wsaw:Action="Paasteel.com/IDeveloperService/ResendActivationCode" message="tns:IDeveloperService_ResendActivationCode_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.com/IDeveloperService/ResendActivationCodeResponse" message="tns:IDeveloperService_ResendActivationCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeveloperApps">
+      <wsdl:input wsaw:Action="Paasteel.com/IDeveloperService/GetDeveloperApps" message="tns:IDeveloperService_GetDeveloperApps_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.com/IDeveloperService/GetDeveloperAppsResponse" message="tns:IDeveloperService_GetDeveloperApps_OutputMessage" />
+      <wsdl:fault wsaw:Action="Paasteel.com/IDeveloperService/GetDeveloperAppsAuthenticationFaultFault" name="AuthenticationFaultFault" message="tns:IDeveloperService_GetDeveloperApps_AuthenticationFaultFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

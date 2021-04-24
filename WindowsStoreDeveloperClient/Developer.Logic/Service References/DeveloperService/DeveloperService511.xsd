@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Store.Common.Enum" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Store.Common.Enum" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/Service/DeveloperService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:simpleType name="AppType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Application" />
+      <xs:enumeration value="Game" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AppType" nillable="true" type="tns:AppType" />
+  <xs:simpleType name="CpuArchitecture">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="None">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Arm">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="X86">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="X64">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="CpuArchitecture" nillable="true" type="tns:CpuArchitecture" />
+  <xs:simpleType name="Sexuality">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Male" />
+      <xs:enumeration value="Female" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Sexuality" nillable="true" type="tns:Sexuality" />
+  <xs:simpleType name="UserAccountStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Invalid" />
+      <xs:enumeration value="Activated" />
+      <xs:enumeration value="NotActivated" />
+      <xs:enumeration value="Blocked" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="UserAccountStatus" nillable="true" type="tns:UserAccountStatus" />
+  <xs:simpleType name="FaultCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="InvalidVerificationCode" />
+      <xs:enumeration value="VerificationCodeExpired" />
+      <xs:enumeration value="Unauthorized" />
+      <xs:enumeration value="NotAuthenticated" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FaultCode" nillable="true" type="tns:FaultCode" />
+  <xs:simpleType name="AppState">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Incomplete" />
+      <xs:enumeration value="Completed" />
+      <xs:enumeration value="Confirmed" />
+      <xs:enumeration value="Published" />
+      <xs:enumeration value="Unpublished" />
+      <xs:enumeration value="BlockedByAdmin" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AppState" nillable="true" type="tns:AppState" />
+  <xs:simpleType name="ScreenshotSize">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Original" />
+      <xs:enumeration value="Thumbnail" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ScreenshotSize" nillable="true" type="tns:ScreenshotSize" />
+  <xs:simpleType name="ScreenshotType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Mobile" />
+      <xs:enumeration value="Desktop" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ScreenshotType" nillable="true" type="tns:ScreenshotType" />
+</xs:schema>

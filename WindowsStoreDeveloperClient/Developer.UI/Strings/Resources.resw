@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccountBlockedByAdmin" xml:space="preserve">
+    <value>حساب کاربری شما توسط تیم مدیریت قفل شده است!</value>
+  </data>
+  <data name="Application" xml:space="preserve">
+    <value>برنامه</value>
+  </data>
+  <data name="AppNameIsNotAvailable" xml:space="preserve">
+    <value>نام انتخابی شما قبلا ثبت شده است!</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>بستن</value>
+  </data>
+  <data name="CompleteLable" xml:space="preserve">
+    <value>کامل است</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>خطا</value>
+    <comment>متن برای خطا</comment>
+  </data>
+  <data name="ErrorInvalidEmail" xml:space="preserve">
+    <value>ایمیل نامعتبر است</value>
+    <comment>Error message for when email is invalid</comment>
+  </data>
+  <data name="ErrorInvalidSignInErrorMessage" xml:space="preserve">
+    <value>ایمیل یا کلمه عبور اشتباه است</value>
+    <comment>Error for when the the user credentials are invalid</comment>
+  </data>
+  <data name="ErrorPasswordLengthInvalid" xml:space="preserve">
+    <value>حداقل طول کلمه عبور باید 6 حرف باشد</value>
+  </data>
+  <data name="ErrorRegex" xml:space="preserve">
+    <value>فیلد دارای حروف نامعتبر است</value>
+    <comment>Error message for when a field contain invalid characters</comment>
+  </data>
+  <data name="ErrorRequired" xml:space="preserve">
+    <value>الزامی</value>
+    <comment>Error message for when a field is required</comment>
+  </data>
+  <data name="ErrorServiceUnreachable" xml:space="preserve">
+    <value>سرویس خارج از دسترس است</value>
+    <comment>Error message for when the service is unreachable</comment>
+  </data>
+  <data name="Game" xml:space="preserve">
+    <value>بازی</value>
+  </data>
+  <data name="IncompleteLable" xml:space="preserve">
+    <value>کامل نیست</value>
+  </data>
+  <data name="InvalidActivationCode" xml:space="preserve">
+    <value>کد فعال سازی منقضی شده یا اشتباه است</value>
+  </data>
+  <data name="InvalidUserNameOrPassword" xml:space="preserve">
+    <value>نام کاربری یا کلمه عبور اشتباه است</value>
+  </data>
+  <data name="SystemError" xml:space="preserve">
+    <value>خطا در سیستم</value>
+  </data>
+  <data name="SystemErrorHappend" xml:space="preserve">
+    <value>با عرض پوزش، خطای رخ داده به تیم مدیریت گزارش شد!</value>
+  </data>
+  <data name="UnauthorizedMessage" xml:space="preserve">
+    <value>احزار هویت شما تایید نشد</value>
+  </data>
+  <data name="BlockedByAdmin" xml:space="preserve">
+    <value>بلاک</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>تکمیل شده و درانتظار تایید</value>
+  </data>
+  <data name="Confirmed" xml:space="preserve">
+    <value>تایید شده</value>
+  </data>
+  <data name="Incomplete" xml:space="preserve">
+    <value>تکمیل نشده</value>
+  </data>
+  <data name="Published" xml:space="preserve">
+    <value>منتشر شده</value>
+  </data>
+  <data name="Unpublished" xml:space="preserve">
+    <value>منتشر نشده</value>
+  </data>
+  <data name="ImageSizeError" xml:space="preserve">
+    <value>اندازه عکس باید 265X265 برحسب پیکسل باشد</value>
+  </data>
+  <data name="VersionNumberRequired" xml:space="preserve">
+    <value>شماره نسخه الزامی است</value>
+  </data>
+  <data name="MobileScreenshotSizeExceedsTheAllowableLimit" xml:space="preserve">
+    <value>اندازه اسکرین شات های موبایل حداکثر باید {0} کیلوبایت باشد</value>
+  </data>
+  <data name="ErrorOnUploadingPackages" xml:space="preserve">
+    <value>خطا در ارسال نسخه، لطفا مجددا تلاش کنید</value>
+  </data>
+  <data name="FileExceedsTheMaximumFileSize" xml:space="preserve">
+    <value>ماکزیمم اندازه پکیج قابل ارسال {0} مگابایت است</value>
+  </data>
+  <data name="NewVersionIsEqualOrLessThanCurrentVersion" xml:space="preserve">
+    <value>شماره نسخه جدید باید بزرگتر از شماره نسخه ی فعلی باشد</value>
+  </data>
+  <data name="PackageArmNotSelected" xml:space="preserve">
+    <value>پکیج ARM انتخاب نشده است</value>
+  </data>
+  <data name="PackageX64NotSelected" xml:space="preserve">
+    <value>پکیج X64 انتخاب نشده است</value>
+  </data>
+  <data name="PackageX86NotSelected" xml:space="preserve">
+    <value>پکیج X86 انتخاب نشده است</value>
+  </data>
+  <data name="AcquireTheMinimumNumberOfScreenshot" xml:space="preserve">
+    <value>حداقل یک تصویر الزامی است</value>
+  </data>
+  <data name="CpuArchitectureIsNotSelected" xml:space="preserve">
+    <value>معماری پردازنده انتخاب نشده است</value>
+  </data>
+  <data name="DeviceFamilyIsNotSelected" xml:space="preserve">
+    <value>پلت فرم انتخاب نشده است</value>
+  </data>
+  <data name="ErrorOnActivation" xml:space="preserve">
+    <value>خطا در ارسال کد فعال سازی</value>
+  </data>
+  <data name="GeneralErrorMessage" xml:space="preserve">
+    <value>کاربر گرامی، با عرض پوزش، مشکل رخ داده به تیم مدیریت اطلاع رسانی شد.</value>
+  </data>
+  <data name="AppDetailPage" xml:space="preserve">
+    <value>جزییات برنامه</value>
+  </data>
+  <data name="DashboardPage" xml:space="preserve">
+    <value>داشبورد</value>
+  </data>
+  <data name="NewConfirmRegistrationPage" xml:space="preserve">
+    <value>تایید عضویت</value>
+  </data>
+  <data name="SignInPage" xml:space="preserve">
+    <value>ورود</value>
+  </data>
+  <data name="SignUpPage" xml:space="preserve">
+    <value>ثبت عضویت</value>
+  </data>
+  <data name="AppIconPage" xml:space="preserve">
+    <value>آیکن برنامه</value>
+  </data>
+  <data name="AppPlatformSpecificationPage" xml:space="preserve">
+    <value>مشخصات پلت فرم</value>
+  </data>
+  <data name="AppScreenshotsPage" xml:space="preserve">
+    <value>تصاویر برنامه</value>
+  </data>
+  <data name="AppSpecificationPage" xml:space="preserve">
+    <value>مشخصات</value>
+  </data>
+  <data name="AppVersionSpecificationPage" xml:space="preserve">
+    <value>مشخصات نسخه/ارسال نسخه</value>
+  </data>
+  <data name="NoInternetAccess" xml:space="preserve">
+    <value>خطا در برقراری ارتباط با سرور، لطفا از اتصال اینترنت خود اطمینان حاصل نمایید</value>
+  </data>
+</root>

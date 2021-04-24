@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="Paasteel.ir" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="Paasteel.ir" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="Paasteel.ir/Imports">
+      <xsd:import schemaLocation="http://localhost/Service/PortalService.svc?xsd=xsd0" namespace="Paasteel.ir" />
+      <xsd:import schemaLocation="http://localhost/Service/PortalService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/Service/PortalService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Store.DataContract" />
+      <xsd:import schemaLocation="http://localhost/Service/PortalService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Store.Common.Enum" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPortalService_GetAppCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppCategories" />
+  </wsdl:message>
+  <wsdl:message name="IPortalService_GetAppCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalService_GetAppDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppDetail" />
+  </wsdl:message>
+  <wsdl:message name="IPortalService_GetAppDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalService_GetAppScreenshot_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppScreenshot" />
+  </wsdl:message>
+  <wsdl:message name="IPortalService_GetAppScreenshot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppScreenshotResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalService_GetSpecialApps_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpecialApps" />
+  </wsdl:message>
+  <wsdl:message name="IPortalService_GetSpecialApps_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpecialAppsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalService_GetMostPopularApps_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMostPopularApps" />
+  </wsdl:message>
+  <wsdl:message name="IPortalService_GetMostPopularApps_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMostPopularAppsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalService_GetChosenApps_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChosenApps" />
+  </wsdl:message>
+  <wsdl:message name="IPortalService_GetChosenApps_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChosenAppsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalService_GetNewApps_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewApps" />
+  </wsdl:message>
+  <wsdl:message name="IPortalService_GetNewApps_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewAppsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalService_GetSpecialGames_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpecialGames" />
+  </wsdl:message>
+  <wsdl:message name="IPortalService_GetSpecialGames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpecialGamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalService_GetMostPopularGames_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMostPopularGames" />
+  </wsdl:message>
+  <wsdl:message name="IPortalService_GetMostPopularGames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMostPopularGamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalService_GetChosenGames_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChosenGames" />
+  </wsdl:message>
+  <wsdl:message name="IPortalService_GetChosenGames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChosenGamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalService_GetNewGames_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewGames" />
+  </wsdl:message>
+  <wsdl:message name="IPortalService_GetNewGames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewGamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalService_GetAppIcon128_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppIcon128" />
+  </wsdl:message>
+  <wsdl:message name="IPortalService_GetAppIcon128_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppIcon128Response" />
+  </wsdl:message>
+  <wsdl:message name="IPortalService_GetAppIcon256_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppIcon256" />
+  </wsdl:message>
+  <wsdl:message name="IPortalService_GetAppIcon256_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppIcon256Response" />
+  </wsdl:message>
+  <wsdl:portType name="IPortalService">
+    <wsdl:operation name="GetAppCategories">
+      <wsdl:input wsaw:Action="Paasteel.ir/IPortalService/GetAppCategories" message="tns:IPortalService_GetAppCategories_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.ir/IPortalService/GetAppCategoriesResponse" message="tns:IPortalService_GetAppCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppDetail">
+      <wsdl:input wsaw:Action="Paasteel.ir/IPortalService/GetAppDetail" message="tns:IPortalService_GetAppDetail_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.ir/IPortalService/GetAppDetailResponse" message="tns:IPortalService_GetAppDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppScreenshot">
+      <wsdl:input wsaw:Action="Paasteel.ir/IPortalService/GetAppScreenshot" message="tns:IPortalService_GetAppScreenshot_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.ir/IPortalService/GetAppScreenshotResponse" message="tns:IPortalService_GetAppScreenshot_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpecialApps">
+      <wsdl:input wsaw:Action="Paasteel.ir/IPortalService/GetSpecialApps" message="tns:IPortalService_GetSpecialApps_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.ir/IPortalService/GetSpecialAppsResponse" message="tns:IPortalService_GetSpecialApps_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMostPopularApps">
+      <wsdl:input wsaw:Action="Paasteel.ir/IPortalService/GetMostPopularApps" message="tns:IPortalService_GetMostPopularApps_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.ir/IPortalService/GetMostPopularAppsResponse" message="tns:IPortalService_GetMostPopularApps_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChosenApps">
+      <wsdl:input wsaw:Action="Paasteel.ir/IPortalService/GetChosenApps" message="tns:IPortalService_GetChosenApps_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.ir/IPortalService/GetChosenAppsResponse" message="tns:IPortalService_GetChosenApps_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewApps">
+      <wsdl:input wsaw:Action="Paasteel.ir/IPortalService/GetNewApps" message="tns:IPortalService_GetNewApps_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.ir/IPortalService/GetNewAppsResponse" message="tns:IPortalService_GetNewApps_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpecialGames">
+      <wsdl:input wsaw:Action="Paasteel.ir/IPortalService/GetSpecialGames" message="tns:IPortalService_GetSpecialGames_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.ir/IPortalService/GetSpecialGamesResponse" message="tns:IPortalService_GetSpecialGames_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMostPopularGames">
+      <wsdl:input wsaw:Action="Paasteel.ir/IPortalService/GetMostPopularGames" message="tns:IPortalService_GetMostPopularGames_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.ir/IPortalService/GetMostPopularGamesResponse" message="tns:IPortalService_GetMostPopularGames_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChosenGames">
+      <wsdl:input wsaw:Action="Paasteel.ir/IPortalService/GetChosenGames" message="tns:IPortalService_GetChosenGames_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.ir/IPortalService/GetChosenGamesResponse" message="tns:IPortalService_GetChosenGames_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewGames">
+      <wsdl:input wsaw:Action="Paasteel.ir/IPortalService/GetNewGames" message="tns:IPortalService_GetNewGames_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.ir/IPortalService/GetNewGamesResponse" message="tns:IPortalService_GetNewGames_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppIcon128">
+      <wsdl:input wsaw:Action="Paasteel.ir/IPortalService/GetAppIcon128" message="tns:IPortalService_GetAppIcon128_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.ir/IPortalService/GetAppIcon128Response" message="tns:IPortalService_GetAppIcon128_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppIcon256">
+      <wsdl:input wsaw:Action="Paasteel.ir/IPortalService/GetAppIcon256" message="tns:IPortalService_GetAppIcon256_InputMessage" />
+      <wsdl:output wsaw:Action="Paasteel.ir/IPortalService/GetAppIcon256Response" message="tns:IPortalService_GetAppIcon256_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,188 @@
+﻿<Page
+    x:Class="WindowsStore.Client.Developer.UI.Views.AppSpecificationPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WindowsStore.Client.Developer.UI.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:behaviors="using:WindowsStore.Client.Developer.UI.Behaviors"
+    xmlns:triggers="using:WindowsStore.Client.Developer.UI.Triggers"
+    xmlns:viewModels="using:WindowsStore.Client.Developer.Logic.ViewModels"
+    xmlns:mvvm="using:Prism.Windows.Mvvm"
+    d:DataContext="{d:DesignInstance viewModels:AppSpecificationPageViewModel,IsDesignTimeCreatable=True}"
+    mvvm:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d" FlowDirection="RightToLeft"   VerticalAlignment="Center">
+
+    <Page.Resources>
+        <Style x:Key="AppDetailStackPanelStyle" TargetType="StackPanel">
+
+        </Style>
+  
+
+    </Page.Resources>
+    <Grid  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <!-- Visual States -->
+        <VisualStateManager.VisualStateGroups>
+
+            <!--  Visual states reflect the application's view state  -->
+            <VisualStateGroup x:Name="ApplicationViewStates">
+                <VisualState x:Name="DefaultLayout">
+                    <VisualState.StateTriggers>
+                        <triggers:LayoutTrigger LayoutState="Landscape" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="AppCategoryPanel.(RelativePanel.RightOf)" Value="AppSpecificatonPanel" />
+                        <Setter Target="SalesInfoPanel.(RelativePanel.Below)" Value="AppSpecificatonPanel" />
+                        <Setter Target="SubmitPanel.(RelativePanel.RightOf)" Value="SalesInfoPanel" />
+                        <Setter Target="SubmitPanel.(RelativePanel.Below)" Value="AppCategoryPanel" />
+                        <Setter Target="SubmitPanel.Margin" Value="10 ,117 ,10 ,0" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="PortraitLayout">
+                    <VisualState.StateTriggers>
+                        <triggers:LayoutTrigger LayoutState="Portrait" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="AppCategoryPanel.(RelativePanel.Below)" Value="AppSpecificatonPanel" />
+                        <Setter Target="SalesInfoPanel.(RelativePanel.Below)" Value="AppCategoryPanel" />
+                        <Setter Target="SubmitPanel.(RelativePanel.Below)" Value="SalesInfoPanel" />
+                        <Setter Target="SubmitPanel.Margin" Value="10 ,5,10 ,25" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="MinimalLayout">
+                    <VisualState.StateTriggers>
+                        <triggers:LayoutTrigger LayoutState="Minimal" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="AppCategoryPanel.(RelativePanel.Below)" Value="AppSpecificatonPanel" />
+                        <Setter Target="SalesInfoPanel.(RelativePanel.Below)" Value="AppCategoryPanel" />
+                        <Setter Target="SubmitPanel.(RelativePanel.Below)" Value="SalesInfoPanel" />
+                        <Setter Target="SubmitPanel.Margin" Value="10 ,5,10 ,25" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <ScrollViewer Grid.Row="0"  VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch">
+            <RelativePanel x:Name="AppDetailRelativePanel"  HorizontalAlignment="Center">
+
+                <StackPanel x:Name="AppSpecificatonPanel" Style="{StaticResource StackPanelStyle}" >
+                    <TextBlock Grid.Row="0" Style="{StaticResource LableColor}" >
+                        <Run Text="مشخصات برنامه"></Run><LineBreak />
+                    </TextBlock>
+                    <!--  App Name  -->
+                    <StackPanel x:Name="AppNamePanel" >
+                        <TextBlock >نام برنامه*</TextBlock>
+                        <TextBox x:Uid="AppNameTextBox" MaxWidth="600"
+                         x:Name="AppNameTextBox"
+                         Text="{Binding AppName, Mode=TwoWay}">
+                            <interactivity:Interaction.Behaviors>
+                                <behaviors:HighlightFormFieldOnErrors PropertyErrors="{Binding AppSpecification.Errors[Name]}" />
+                            </interactivity:Interaction.Behaviors>
+                        </TextBox>
+                        <TextBlock x:Name="ErrorsAppName"
+                           Style="{StaticResource ErrorMessageStyle}"
+                           Text="{Binding AppSpecification.Errors[Name],
+                                          Converter={StaticResource FirstErrorConverter}}"
+                           TextWrapping="Wrap" />
+                    </StackPanel>
+
+                    <!--  App Description  -->
+                    <StackPanel x:Name="AppDescriptionPanel" >
+                        <TextBlock>شرح برنامه*</TextBlock>
+                        <TextBox x:Uid="AppDescriptionTextBox" MaxWidth="600" Height="100"
+                         x:Name="AppDescriptionTextBox"
+                         AcceptsReturn="True"
+                         Text="{Binding AppSpecification.Description, Mode=TwoWay}" TextWrapping="Wrap">
+                            <interactivity:Interaction.Behaviors>
+                                <behaviors:HighlightFormFieldOnErrors PropertyErrors="{Binding AppSpecification.Errors[Description]}" />
+                            </interactivity:Interaction.Behaviors>
+                        </TextBox>
+                        <TextBlock x:Name="ErrorsAppDescription"
+                           Style="{StaticResource ErrorMessageStyle}"
+                           Text="{Binding AppSpecification.Errors[Description],
+                                          Converter={StaticResource FirstErrorConverter}}"
+                           TextWrapping="Wrap" />
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel x:Name="AppCategoryPanel" Style="{StaticResource StackPanelStyle}">
+                    <TextBlock Style="{StaticResource LableColor}" >
+                        <Run Text="نوع برنامه"></Run>
+                        <LineBreak />
+                    </TextBlock>
+                    <StackPanel x:Name="CategoryNamePanel" >
+                        <TextBlock>نوع برنامه*</TextBlock>
+                        <ComboBox x:Uid="CategoryNameComboBox" MaxWidth="600" Margin="0 7"
+                         x:Name="CategoryNameComboBox"
+                         DisplayMemberPath="Value"
+                         ItemsSource="{Binding AppTypes}"
+                         SelectedValue="{Binding AppTypeValue, Mode=TwoWay}"
+                         SelectedValuePath="Id">
+                            <interactivity:Interaction.Behaviors>
+                                <behaviors:HighlightFormFieldOnErrors PropertyErrors="{Binding AppSpecification.Errors[AppType]}" />
+                            </interactivity:Interaction.Behaviors>
+                        </ComboBox>
+                        <TextBlock x:Name="ErrorsCategoryName"
+                           Style="{StaticResource ErrorMessageStyle}"
+                           Text="{Binding AppSpecification.Errors[AppType],
+                                          Converter={StaticResource FirstErrorConverter}}"
+                           TextWrapping="Wrap" />
+                    </StackPanel>
+                    <StackPanel x:Name="SubCategoryNamePanel" >
+                        <TextBlock>دسته*</TextBlock>
+                        <ComboBox x:Uid="SubCategoryNameTextBox" MaxWidth="600" Margin="0 7"
+                     x:Name="SubCategoryNameTextBox"
+                     DisplayMemberPath="Value"
+                     ItemsSource="{Binding Categories}"
+                     SelectedValue="{Binding AppSpecification.CategoryId, Mode=TwoWay}"
+                     SelectedValuePath="Id"
+                     IsEnabled="{Binding AppTypeIsSelected , Mode=TwoWay}"             >
+                            <interactivity:Interaction.Behaviors>
+                                <behaviors:HighlightFormFieldOnErrors PropertyErrors="{Binding AppSpecification.Errors[CategoryId]}" />
+                            </interactivity:Interaction.Behaviors>
+                        </ComboBox>
+                        <TextBlock x:Name="ErrorsSubCategoryName"
+                       Style="{StaticResource ErrorMessageStyle}"
+                       Text="{Binding AppSpecification.Errors[CategoryId],
+                                      Converter={StaticResource FirstErrorConverter}}"
+                       TextWrapping="Wrap" />
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel x:Name="SalesInfoPanel" Style="{StaticResource StackPanelStyle}">
+                    <TextBlock Style="{StaticResource LableColor}"  >
+                        <Run Text="اطلاعات فروش"></Run>
+                        <LineBreak></LineBreak>
+                    </TextBlock>
+                    <StackPanel x:Name="PricingPanel" >
+                        <TextBlock>قیمت*</TextBlock>
+                        <ComboBox x:Uid="PricingComboBox" MaxWidth="600" Margin="0 7"
+                     x:Name="PricingComboBox"
+                     DisplayMemberPath="Value"
+                     ItemsSource="{Binding Prices}"
+                     SelectedValue="{Binding AppSpecification.Price, Mode=TwoWay}"
+                     SelectedValuePath="Id">
+                            <interactivity:Interaction.Behaviors>
+                                <behaviors:HighlightFormFieldOnErrors PropertyErrors="{Binding AppSpecification.Errors[Price]}" />
+                            </interactivity:Interaction.Behaviors>
+                        </ComboBox>
+
+                    </StackPanel>
+                </StackPanel>
+
+                <!-- Submit button -->
+                <StackPanel  x:Name="SubmitPanel"  Style="{StaticResource StackPanelStyle}">
+
+                    <Button x:Uid="SubmitButton" 
+                            x:Name="SubmitButton"
+                           Margin="0 20 0 0"
+                      Style="{StaticResource DarkButtonStyle}"
+                            Command="{Binding SaveAppSpecificationCommand}"
+                            Content="ثبت" />
+                </StackPanel>
+            </RelativePanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
